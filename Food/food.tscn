@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://obr4c8xuj21u"]
+
+[ext_resource type="Script" path="res://Food/food.gd" id="1_dw75d"]
+[ext_resource type="Texture2D" uid="uid://d0ou3fmp1qpy8" path="res://Assets/Burrito-Chipotle-PNG.png" id="1_uxl64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pciiq"]
+radius = 35.0
+height = 139.23
+
+[node name="Food" type="Area2D"]
+script = ExtResource("1_dw75d")
+max_speed = 300.0
+direction = Vector2(0, 1)
+points_range = Vector2(1, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_uxl64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pciiq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

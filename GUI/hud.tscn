@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://6miqyx3x5ovf"]
+
+[ext_resource type="Script" path="res://GUI/hud.gd" id="1_anr25"]
+[ext_resource type="LabelSettings" uid="uid://bqj4wsmbp8q75" path="res://Assets/Fonts/score_font.tres" id="1_fq0oi"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_anr25")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("1_fq0oi")
+horizontal_alignment = 1
+vertical_alignment = 1
