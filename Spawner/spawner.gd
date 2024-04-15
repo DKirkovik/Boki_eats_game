@@ -15,6 +15,7 @@ var spawn_range:Vector2
 @onready var timer = $Timer
 
 func _ready():
+	GameManager.game_over.connect(on_game_over)
 	if food_scene == null:
 		print("nothing to spawn")
 		return
@@ -53,3 +54,6 @@ func _on_timer_timeout():
 	spawn_food()
 	if spawned_foods % lvl_up == 0:
 		change_spawnrate()
+
+func on_game_over()->void:
+	timer.stop()

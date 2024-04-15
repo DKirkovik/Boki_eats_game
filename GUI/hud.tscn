@@ -30,3 +30,10 @@ text = "0000"
 label_settings = ExtResource("1_fq0oi")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="lives" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "000"
+label_settings = ExtResource("1_fq0oi")
+horizontal_alignment = 1
+vertical_alignment = 1

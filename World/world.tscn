@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://hblqjc8pac7t"]
+[gd_scene load_steps=8 format=3 uid="uid://hblqjc8pac7t"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_jw5v4"]
 [ext_resource type="PackedScene" uid="uid://cfrbjq7wjs8rt" path="res://Player/boki.tscn" id="1_khhgq"]
+[ext_resource type="PackedScene" uid="uid://bqb8mm0vgao4l" path="res://Walls/bottom_wall.tscn" id="2_2gbmo"]
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="2_bab8u"]
 [ext_resource type="PackedScene" uid="uid://dctu5ejaupcjc" path="res://Spawner/spawner.tscn" id="4_fp0d6"]
 [ext_resource type="PackedScene" uid="uid://6miqyx3x5ovf" path="res://GUI/hud.tscn" id="4_xwjek"]
@@ -12,10 +13,13 @@ script = ExtResource("1_jw5v4")
 
 [node name="Background" type="Sprite2D" parent="."]
 
+[node name="BottomWall" parent="." instance=ExtResource("2_2gbmo")]
+position = Vector2(0, 988)
+
 [node name="Boki" parent="." instance=ExtResource("1_khhgq")]
 position = Vector2(294, 922)
 max_speed = 500.0
-max_hp = 5
+max_hp = 1
 offset = 40.0
 
 [node name="Food" parent="." instance=ExtResource("2_bab8u")]
@@ -26,7 +30,6 @@ position = Vector2(304, 213)
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_xwjek")]
 
 [node name="Game_over" parent="CanvasLayer" instance=ExtResource("5_02try")]
-visible = false
 
 [node name="FoodContainer" type="Node2D" parent="."]
 
