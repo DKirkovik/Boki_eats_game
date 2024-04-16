@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdnrl12b2a6qm"]
+[gd_scene load_steps=4 format=3 uid="uid://bdnrl12b2a6qm"]
 
 [ext_resource type="Script" path="res://PowerUp/monster.gd" id="1_gjlgu"]
+[ext_resource type="Texture2D" uid="uid://dw0ns0jj2mqo5" path="res://Assets/monster.png" id="2_rbl3h"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wp3u6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6vqs"]
+radius = 16.0
+height = 82.0
 
-[node name="Monster" type="Area2D"]
+[node name="Monster" type="Area2D" groups=["powerups"]]
 script = ExtResource("1_gjlgu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wp3u6")
+max_speed = 250.0
+direction = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_rbl3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k6vqs")

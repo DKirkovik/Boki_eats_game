@@ -1,7 +1,7 @@
 extends Control
 
 @onready var label = $MarginContainer/Label
-@onready var lives_label = $MarginContainer/lives
+@onready var lives_label = $VBoxContainer/lives
 
 
 func _ready():

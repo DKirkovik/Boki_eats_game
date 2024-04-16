@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqb8mm0vgao4l"]
+[gd_scene load_steps=10 format=3 uid="uid://bqb8mm0vgao4l"]
 
 [ext_resource type="Script" path="res://Walls/bottom_wall.gd" id="1_cd3jb"]
 [ext_resource type="Texture2D" uid="uid://cbhh2x6t0mo0l" path="res://Assets/get_image.jpeg" id="1_tkco6"]
+[ext_resource type="AudioStream" uid="uid://c5o1vfp22gl5i" path="res://Assets/SFX/boing2.wav" id="3_otfca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uy7s"]
 size = Vector2(700, 10)
@@ -9,7 +10,64 @@ size = Vector2(700, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uu3p"]
 size = Vector2(700, 20)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6kucp"]
+random_pitch = 2.0
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("3_otfca")
+stream_0/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_ckkbu"]
+resource_name = "bouncing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(13.9288, 1.86607, 1, 0.170755, 0.840896, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.09, 0.09), Vector2(0.11, 0.11), Vector2(0.1, 0.1), Vector2(0.09, 0.09), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(0, -20), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fu18s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0x8vu"]
+_data = {
+"RESET": SubResource("Animation_fu18s"),
+"bouncing": SubResource("Animation_ckkbu")
+}
+
 [node name="BottomWall" type="Area2D"]
+z_index = 1
 script = ExtResource("1_cd3jb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,10 +83,31 @@ position = Vector2(302, 41.25)
 shape = SubResource("RectangleShape2D_7uy7s")
 
 [node name="BounceArea" type="Area2D" parent="."]
+position = Vector2(0, -7)
 monitoring = false
 
 [node name="Bounce" type="CollisionShape2D" parent="BounceArea"]
 position = Vector2(302, -15.5)
 shape = SubResource("RectangleShape2D_3uu3p")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_6kucp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0x8vu")
+}
+autoplay = "bouncing"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="BounceArea" to="." method="_on_bounce_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_timer_2_timeout"]

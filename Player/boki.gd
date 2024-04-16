@@ -34,6 +34,11 @@ func _physics_process(delta):
 
 
 func _on_hit_box_area_entered(area):
+	if area.is_in_group("powerups"):
+		GameManager.jelly_powerup.emit()
+		area.queue_free()
+		audio_stream_player_2d.play()
+		
 	if area.has_method("get_points"):
 		GameManager.on_score_changed(area.get_points())
 		if !is_dead:

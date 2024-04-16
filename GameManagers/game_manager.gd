@@ -3,6 +3,7 @@ extends Node
 signal score_changed(score:float)
 signal lives_changed(lives:int)
 signal game_over()
+signal jelly_powerup()
 
 var max_score:float
 var score:float
@@ -11,8 +12,9 @@ var lives:int
 
 
 func on_score_changed(_score:float) ->void:
-	score += _score
-	score_changed.emit(score)
+	if !is_game_over:
+		score += _score
+		score_changed.emit(score)
 	
 func get_score() ->float:
 	return score
