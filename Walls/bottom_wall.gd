@@ -6,8 +6,10 @@ extends Area2D
 @onready var timer = $Timer
 @onready var start_timer = $StartTimer
 
+@export var particles_scene: PackedScene
 @export var bounce_force:float
 @export var powerup_time:float
+@export var particle_offset: float
 
 var is_bounce:bool = false
 
@@ -43,8 +45,16 @@ func _on_timer_2_timeout():
 func _on_bounce_area_area_entered(area):
 	if area.has_method("bounce_back"):
 		audio_stream_player_2d.play()
+		spawn_particles(area.global_position)
 		area.bounce_back(bounce_force)
-		
 
 func start_powerup() ->void:
 	start_timer.start()
+
+func spawn_particles(pos:Vector2) ->void:
+	if particles_scene == null:
+		print("nothing to spawn")
+		return
+	var particle_instnace = particles_scene.instantiate() as Node2D
+	particle_instnace.global_position = Vector2(pos.x,pos.y + particle_offset)
+	get_parent().add_child(particle_instnace)

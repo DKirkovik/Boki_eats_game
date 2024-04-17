@@ -1,11 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdnrl12b2a6qm"]
+[gd_scene load_steps=9 format=3 uid="uid://bdnrl12b2a6qm"]
 
 [ext_resource type="Script" path="res://PowerUp/monster.gd" id="1_gjlgu"]
+[ext_resource type="Shader" path="res://PowerUp/monster.gdshader" id="2_0yac2"]
 [ext_resource type="Texture2D" uid="uid://dw0ns0jj2mqo5" path="res://Assets/monster.png" id="2_rbl3h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icf3d"]
+shader = ExtResource("2_0yac2")
+shader_parameter/line_color = Color(0.682353, 1, 0.396078, 1)
+shader_parameter/line_thickness = 21.364
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6vqs"]
 radius = 16.0
 height = 82.0
+
+[sub_resource type="Curve" id="Curve_jyl6n"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5on7q"]
+curve = SubResource("Curve_jyl6n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dfs5g"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(15, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 60.0
+gravity = Vector3(0, -100, 0)
+linear_accel_min = 1.0
+linear_accel_max = 2.05
+scale_max = 4.0
+scale_over_velocity_max = 10.0
+scale_over_velocity_curve = SubResource("CurveTexture_5on7q")
+color = Color(0.729412, 1, 0.631373, 1)
+hue_variation_min = -0.05
+hue_variation_max = 0.09
 
 [node name="Monster" type="Area2D" groups=["powerups"]]
 script = ExtResource("1_gjlgu")
@@ -13,9 +44,15 @@ max_speed = 250.0
 direction = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_icf3d")
 position = Vector2(1, 0)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_rbl3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k6vqs")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -39)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_dfs5g")
