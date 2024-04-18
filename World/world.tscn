@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dctu5ejaupcjc" path="res://Spawner/spawner.tscn" id="4_fp0d6"]
 [ext_resource type="PackedScene" uid="uid://6miqyx3x5ovf" path="res://GUI/hud.tscn" id="4_xwjek"]
 [ext_resource type="PackedScene" uid="uid://b1v8pbmdnfeuv" path="res://GUI/game_over/game_over.tscn" id="5_02try"]
-[ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="8_pakw6"]
+[ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="8_2osu4"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_jw5v4")
@@ -41,5 +41,5 @@ lvl_up = 10
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
 
-[node name="Monster" parent="." instance=ExtResource("8_pakw6")]
-position = Vector2(342, 497)
+[node name="Kapi" parent="." instance=ExtResource("8_2osu4")]
+position = Vector2(283, 449)

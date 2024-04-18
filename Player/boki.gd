@@ -12,6 +12,8 @@ var screen_w
 var is_dead:bool = false
 
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_burgir = $AudioStreamBurgir
+@onready var audio_steram_kapi = $AudioSteramKapi
 
 func _ready():
 	speed = max_speed
@@ -35,15 +37,22 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("powerups"):
-		GameManager.jelly_powerup.emit()
+		if area.is_kapi:
+			GameManager.on_lives_changed(1)
+			audio_steram_kapi.play()
+		else:
+			GameManager.jelly_powerup.emit()
+			audio_stream_player_2d.play()
 		area.queue_free()
-		audio_stream_player_2d.play()
 		
 	if area.has_method("get_points"):
 		GameManager.on_score_changed(area.get_points())
 		if !is_dead:
 			area.queue_free()
-			audio_stream_player_2d.play()
+			if area.is_in_group("Burgir"):
+				audio_stream_burgir.play()
+			else:
+				audio_stream_player_2d.play()
 
 func on_game_over() ->void:
 	is_dead = true

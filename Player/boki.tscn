@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfrbjq7wjs8rt"]
+[gd_scene load_steps=12 format=3 uid="uid://cfrbjq7wjs8rt"]
 
 [ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Boki_taliban.png" id="1_nq5cs"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dxbkr7bc0fshm" path="res://Assets/SFX/OmOm1.wav" id="3_qf5xk"]
 [ext_resource type="AudioStream" uid="uid://wo0gfrnrp0vn" path="res://Assets/SFX/omom3.wav" id="5_gq6qy"]
 [ext_resource type="AudioStream" uid="uid://c3a3eusjx68mu" path="res://Assets/SFX/omom4.wav" id="6_41324"]
+[ext_resource type="AudioStream" uid="uid://bw5q0i5rqf4a" path="res://Assets/SFX/burgi.wav" id="7_gihy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vop88"]
 size = Vector2(53, 113)
@@ -25,6 +26,13 @@ stream_3/weight = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6a1f"]
 radius = 30.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xc6fr"]
+random_pitch = 1.3
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("7_gihy4")
+stream_0/weight = 1.0
 
 [node name="Boki" type="CharacterBody2D"]
 script = ExtResource("1_l6qle")
@@ -48,5 +56,10 @@ stream = SubResource("AudioStreamRandomizer_77f82")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 45)
 shape = SubResource("CircleShape2D_h6a1f")
+
+[node name="AudioStreamBurgir" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xc6fr")
+
+[node name="AudioSteramKapi" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

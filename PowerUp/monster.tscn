@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_icf3d"]
 shader = ExtResource("2_0yac2")
 shader_parameter/line_color = Color(0.682353, 1, 0.396078, 1)
-shader_parameter/line_thickness = 21.364
+shader_parameter/line_thickness = 30.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6vqs"]
 radius = 16.0

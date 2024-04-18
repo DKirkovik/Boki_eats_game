@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="1_43j25"]
 [ext_resource type="Texture2D" uid="uid://c21blg3ov8qlm" path="res://Assets/burgir.png" id="2_b076s"]
 
-[node name="Burgir" instance=ExtResource("1_43j25")]
+[node name="Burgir" groups=["Burgir"] instance=ExtResource("1_43j25")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_b076s")
