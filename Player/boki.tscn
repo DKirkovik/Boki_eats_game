@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfrbjq7wjs8rt"]
+[gd_scene load_steps=15 format=3 uid="uid://cfrbjq7wjs8rt"]
 
 [ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Boki_taliban.png" id="1_nq5cs"]
@@ -34,6 +34,29 @@ streams_count = 1
 stream_0/stream = ExtResource("7_gihy4")
 stream_0/weight = 1.0
 
+[sub_resource type="Curve" id="Curve_hgbcp"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e5ktj"]
+curve = SubResource("Curve_hgbcp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_scc4s"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(60, 10, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 100, 0)
+radial_accel_max = 100.0
+scale_max = 3.0
+scale_over_velocity_max = 50.0
+scale_over_velocity_curve = SubResource("CurveTexture_e5ktj")
+color = Color(0.984314, 0.592157, 0.294118, 1)
+hue_variation_max = 0.25
+
 [node name="Boki" type="CharacterBody2D"]
 script = ExtResource("1_l6qle")
 song = ExtResource("2_slgxc")
@@ -61,5 +84,15 @@ shape = SubResource("CircleShape2D_h6a1f")
 stream = SubResource("AudioStreamRandomizer_xc6fr")
 
 [node name="AudioSteramKapi" type="AudioStreamPlayer2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 19)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_scc4s")
+one_shot = true
+preprocess = 2.0
+explosiveness = 1.0
+randomness = 1.0
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
