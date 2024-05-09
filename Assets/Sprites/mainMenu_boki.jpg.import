@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://782uw3ipv3jb"
-path="res://.godot/imported/Boki_taliban.png-59db5b8b63976e571ad16ab0ad1e0655.ctex"
+uid="uid://dhtut0iegdmna"
+path="res://.godot/imported/mainMenu_boki.jpg-1512a1205ca7428d8a80633d52ee80ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Boki_taliban.png"
-dest_files=["res://.godot/imported/Boki_taliban.png-59db5b8b63976e571ad16ab0ad1e0655.ctex"]
+source_file="res://Assets/Sprites/mainMenu_boki.jpg"
+dest_files=["res://.godot/imported/mainMenu_boki.jpg-1512a1205ca7428d8a80633d52ee80ab.ctex"]
 
 [params]
 

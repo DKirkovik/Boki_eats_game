@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://obr4c8xuj21u"]
 
 [ext_resource type="Script" path="res://Food/food.gd" id="1_dw75d"]
-[ext_resource type="Texture2D" uid="uid://d0ou3fmp1qpy8" path="res://Assets/Burrito-Chipotle-PNG.png" id="1_uxl64"]
+[ext_resource type="Texture2D" uid="uid://d0ou3fmp1qpy8" path="res://Assets/Sprites/Burrito-Chipotle-PNG.png" id="1_uxl64"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pciiq"]
 radius = 35.0

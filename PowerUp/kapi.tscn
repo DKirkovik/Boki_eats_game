@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1m4teok3mma1"]
+[gd_scene load_steps=4 format=3 uid="uid://c1m4teok3mma1"]
 
 [ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="1_c62tt"]
-[ext_resource type="Texture2D" uid="uid://k4eaf6ua11pi" path="res://Assets/Hp_Kapi.png" id="2_gonrh"]
+[ext_resource type="Texture2D" uid="uid://k4eaf6ua11pi" path="res://Assets/Sprites/Hp_Kapi.png" id="2_14y68"]
+[ext_resource type="PackedScene" uid="uid://ce0b0x2wv2atn" path="res://AudioScenes/Sniff/sniff.tscn" id="2_70qhf"]
 
 [node name="Kapi" instance=ExtResource("1_c62tt")]
 max_speed = 300.0
 is_kapi = true
+sfx = ExtResource("2_70qhf")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_gonrh")
+texture = ExtResource("2_14y68")
 
 [node name="GPUParticles2D" parent="." index="2"]
 position = Vector2(0, -47)

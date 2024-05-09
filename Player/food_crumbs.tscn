@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci1nv8jqi66y8"]
+[gd_scene load_steps=5 format=3 uid="uid://ci1nv8jqi66y8"]
+
+[ext_resource type="Script" path="res://Player/food_crumbs.gd" id="1_iy043"]
 
 [sub_resource type="Curve" id="Curve_hgbcp"]
 max_value = 3.0
@@ -25,10 +27,15 @@ hue_variation_max = 0.25
 
 [node name="FoodCrumbs" type="GPUParticles2D"]
 position = Vector2(0, 19)
-emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_scc4s")
-one_shot = true
 preprocess = 2.0
 explosiveness = 1.0
 randomness = 1.0
+script = ExtResource("1_iy043")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k4eaf6ua11pi"
-path="res://.godot/imported/Hp_Kapi.png-8ce3f6020e86f99f22f37cbf7b05789f.ctex"
+uid="uid://782uw3ipv3jb"
+path="res://.godot/imported/Boki_taliban.png-cf0a8f993a751a65e0ac7ceff5567fc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hp_Kapi.png"
-dest_files=["res://.godot/imported/Hp_Kapi.png-8ce3f6020e86f99f22f37cbf7b05789f.ctex"]
+source_file="res://Assets/Sprites/Boki_taliban.png"
+dest_files=["res://.godot/imported/Boki_taliban.png-cf0a8f993a751a65e0ac7ceff5567fc8.ctex"]
 
 [params]
 

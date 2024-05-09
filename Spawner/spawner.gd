@@ -8,10 +8,14 @@ extends Node2D
 @export var lvl_up:int
 @export var spawn_offset:float
 @export var food_container:Node2D
+@export var dif_level:float
+@export var powerup_spawn_per:float
+
 
 var spawnrate:float
 var spawned_foods:int
 var spawn_range:Vector2
+var cur_powerup_spawn_per:float
 
 @onready var timer = $Timer
 
@@ -27,16 +31,14 @@ func _ready():
 	spawnrate = max_spawnrate
 	spawned_foods = 1
 	spawn_range = Vector2(spawn_offset, get_viewport_rect().size.x - spawn_offset)
+	cur_powerup_spawn_per = powerup_spawn_per
 		
-		
-func _physics_process(delta):
-	spawnrate = clamp(spawnrate,0,max_spawnrate)
-
 
 func change_spawnrate() ->void:
-	if spawnrate >0.2:
+	if spawnrate > dif_level:
 		spawnrate -= spawn_rate_amount
 		print("spawnrate changed", spawnrate)
+		timer.wait_time = spawnrate
 
 
 func get_spawnpoint(range:Vector2) ->float:
@@ -57,9 +59,10 @@ func spawn_food() ->void:
 	
 
 func _on_timer_timeout():
-	timer.wait_time = spawnrate
 	spawn_food()
+	try_spawn_powerup()
 	if spawned_foods % lvl_up == 0:
+		print(spawned_foods)
 		change_spawnrate()
 		spawn_powerup()
 
@@ -77,3 +80,14 @@ func spawn_powerup() -> void:
 		print("nowhere to spawn")
 		return
 	food_container.add_child(powerup_instance)
+
+
+func try_spawn_powerup() ->void:
+	var ran_num = randf_range(0,100)
+	print(ran_num)
+	if ran_num <= cur_powerup_spawn_per:
+		spawn_powerup()
+		cur_powerup_spawn_per = 0
+	else:
+		cur_powerup_spawn_per += 1
+		

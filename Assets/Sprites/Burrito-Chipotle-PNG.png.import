@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhtut0iegdmna"
-path="res://.godot/imported/mainMenu_boki.jpg-2649f87555b4998713cc44fd5352acf6.ctex"
+uid="uid://d0ou3fmp1qpy8"
+path="res://.godot/imported/Burrito-Chipotle-PNG.png-33715a957098bcb4da3c1182ca9b9197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mainMenu_boki.jpg"
-dest_files=["res://.godot/imported/mainMenu_boki.jpg-2649f87555b4998713cc44fd5352acf6.ctex"]
+source_file="res://Assets/Sprites/Burrito-Chipotle-PNG.png"
+dest_files=["res://.godot/imported/Burrito-Chipotle-PNG.png-33715a957098bcb4da3c1182ca9b9197.ctex"]
 
 [params]
 

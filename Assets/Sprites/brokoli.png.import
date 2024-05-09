@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbhh2x6t0mo0l"
-path="res://.godot/imported/get_image.jpeg-18731239de02fdde71d92b559fd81915.ctex"
+uid="uid://c7233dgu241k6"
+path="res://.godot/imported/brokoli.png-fbcf91f4bc3816d77215554af24a1f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/get_image.jpeg"
-dest_files=["res://.godot/imported/get_image.jpeg-18731239de02fdde71d92b559fd81915.ctex"]
+source_file="res://Assets/Sprites/brokoli.png"
+dest_files=["res://.godot/imported/brokoli.png-fbcf91f4bc3816d77215554af24a1f85.ctex"]
 
 [params]
 

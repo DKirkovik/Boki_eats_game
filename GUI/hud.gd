@@ -2,6 +2,7 @@ extends Control
 
 @onready var label = $MarginContainer/Label
 @onready var lives_label = $VBoxContainer/lives
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready():
@@ -14,6 +15,8 @@ func _ready():
 
 func update_lable(_score:float)->void:
 	label.text = str(_score)
+	animation_player.play("bounce")
 
 func update_lives(_lives:int) ->void:
 	lives_label.text = str(_lives)
+	animation_player.play("idle")

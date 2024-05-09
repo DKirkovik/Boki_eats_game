@@ -21,7 +21,7 @@ func _ready():
 
 
 func _on_area_entered(area):
-	if area.has_method("get_points") && !is_bounce:
+	if area.has_method("get_points") && !is_bounce && !area.is_trash:
 		GameManager.on_lives_changed(-1)
 		
 		
@@ -43,7 +43,7 @@ func _on_timer_2_timeout():
 
 
 func _on_bounce_area_area_entered(area):
-	if area.has_method("bounce_back"):
+	if area.has_method("bounce_back") && !area.is_trash:
 		audio_stream_player_2d.play()
 		spawn_particles(area.global_position)
 		area.bounce_back(bounce_force)

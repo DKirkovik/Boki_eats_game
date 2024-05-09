@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c21blg3ov8qlm"
-path="res://.godot/imported/burgir.png-d1133645041bfe65d05a4522cd7401d2.ctex"
+uid="uid://dw0ns0jj2mqo5"
+path="res://.godot/imported/monster.png-f029374b7cd74a1fe70c858c9e5c43ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/burgir.png"
-dest_files=["res://.godot/imported/burgir.png-d1133645041bfe65d05a4522cd7401d2.ctex"]
+source_file="res://Assets/Sprites/monster.png"
+dest_files=["res://.godot/imported/monster.png-f029374b7cd74a1fe70c858c9e5c43ee.ctex"]
 
 [params]
 

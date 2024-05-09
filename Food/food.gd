@@ -3,10 +3,11 @@ extends Area2D
 @export var max_speed:Vector2
 @export var direction:Vector2
 @export var points_range:Vector2
+@export var is_trash:bool
 
 var speed:float
 var points:int
-var is_trash:bool
+
 
 func _ready():
 	points = randomize_points(points_range)
@@ -25,7 +26,10 @@ func randomize_speed(s:Vector2) ->float:
 	return final_speed
 
 func get_points() -> float:
-	return points
+	if is_trash:
+		return -points
+	else:
+		return points
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

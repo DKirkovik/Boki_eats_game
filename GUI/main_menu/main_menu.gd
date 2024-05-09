@@ -13,3 +13,4 @@ func _on_exit_pressed():
 
 func _on_scores_pressed():
 	print("Scores")
+	OS.shell_open("https://ko-fi.com/humanbones/donate")

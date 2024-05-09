@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1v8pbmdnfeuv"]
 
-[ext_resource type="Texture2D" uid="uid://cfm7g270ph4ud" path="res://Assets/game_over_lol.png" id="1_alxtq"]
+[ext_resource type="Texture2D" uid="uid://cfm7g270ph4ud" path="res://Assets/Sprites/game_over_lol.png" id="1_alxtq"]
 [ext_resource type="Script" path="res://GUI/game_over/game_over.gd" id="1_nb3hy"]
 [ext_resource type="AudioStream" uid="uid://balk0yn5dott0" path="res://Assets/SFX/defeat_lol.wav" id="2_wyakk"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_efcbb"]

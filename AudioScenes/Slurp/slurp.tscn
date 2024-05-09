@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjvanrawg6vxl"]
+
+[ext_resource type="PackedScene" uid="uid://ce0b0x2wv2atn" path="res://AudioScenes/Sniff/sniff.tscn" id="1_5k00l"]
+[ext_resource type="AudioStream" uid="uid://corrndoupt3k7" path="res://Assets/SFX/slurp.wav" id="2_6isau"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qty8t"]
+streams_count = 1
+stream_0/stream = ExtResource("2_6isau")
+stream_0/weight = 1.0
+
+[node name="Slurp" instance=ExtResource("1_5k00l")]
+stream = SubResource("AudioStreamRandomizer_qty8t")

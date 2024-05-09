@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://World/world.gd" id="1_jw5v4"]
 [ext_resource type="PackedScene" uid="uid://cfrbjq7wjs8rt" path="res://Player/boki.tscn" id="1_khhgq"]
 [ext_resource type="PackedScene" uid="uid://bqb8mm0vgao4l" path="res://Walls/bottom_wall.tscn" id="2_2gbmo"]
-[ext_resource type="Texture2D" uid="uid://cjvcitfked67c" path="res://Assets/background_big.png" id="2_m6qq2"]
+[ext_resource type="Texture2D" uid="uid://cjvcitfked67c" path="res://Assets/Sprites/background_big.png" id="2_m6qq2"]
 [ext_resource type="PackedScene" uid="uid://dctu5ejaupcjc" path="res://Spawner/spawner.tscn" id="4_fp0d6"]
 [ext_resource type="PackedScene" uid="uid://6miqyx3x5ovf" path="res://GUI/hud.tscn" id="4_xwjek"]
 [ext_resource type="PackedScene" uid="uid://b1v8pbmdnfeuv" path="res://GUI/game_over/game_over.tscn" id="5_02try"]
@@ -24,8 +24,8 @@ powerup_time = 10.0
 
 [node name="Boki" parent="." instance=ExtResource("1_khhgq")]
 position = Vector2(294, 892)
-max_speed = 500.0
-max_hp = 1
+max_speed = 600.0
+max_hp = 3
 offset = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -37,9 +37,12 @@ offset = 40.0
 [node name="FoodContainer" type="Node2D" parent="."]
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("food_container") instance=ExtResource("4_fp0d6")]
-lvl_up = 10
+max_spawnrate = 0.7
+lvl_up = 15
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
+dif_level = 0.5
+powerup_spawn_per = 15.0
 
 [node name="Kapi" parent="." instance=ExtResource("8_2osu4")]
-position = Vector2(283, 449)
+position = Vector2(310, 432)
