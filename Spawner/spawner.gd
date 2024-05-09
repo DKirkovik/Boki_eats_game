@@ -62,7 +62,6 @@ func _on_timer_timeout():
 	spawn_food()
 	try_spawn_powerup()
 	if spawned_foods % lvl_up == 0:
-		print(spawned_foods)
 		change_spawnrate()
 		spawn_powerup()
 
@@ -84,7 +83,6 @@ func spawn_powerup() -> void:
 
 func try_spawn_powerup() ->void:
 	var ran_num = randf_range(0,100)
-	print(ran_num)
 	if ran_num <= cur_powerup_spawn_per:
 		spawn_powerup()
 		cur_powerup_spawn_per = 0

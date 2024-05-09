@@ -4,7 +4,8 @@ extends Area2D
 @export var direction:Vector2
 @export var is_kapi:bool  #Make Enum for diff powerups
 @export var is_trash:bool
-
+@export var lives_amount:int
+@export var powerup_time:float
 @export var sfx:PackedScene
 
 var speed:float
@@ -28,9 +29,9 @@ func start_powerup() ->void:
 	#redef powerup code
 	
 	if is_kapi:
-		GameManager.on_lives_changed(+1)
+		GameManager.one_up(lives_amount)
 	else:
-		GameManager.jelly_powerup.emit()
+		GameManager.jelly_powerup.emit(powerup_time)
 	spawn_sound()
 	spawn_particles()
 	call_deferred("queue_free")

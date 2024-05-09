@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hblqjc8pac7t"]
+[gd_scene load_steps=8 format=3 uid="uid://hblqjc8pac7t"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_jw5v4"]
 [ext_resource type="PackedScene" uid="uid://cfrbjq7wjs8rt" path="res://Player/boki.tscn" id="1_khhgq"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dctu5ejaupcjc" path="res://Spawner/spawner.tscn" id="4_fp0d6"]
 [ext_resource type="PackedScene" uid="uid://6miqyx3x5ovf" path="res://GUI/hud.tscn" id="4_xwjek"]
 [ext_resource type="PackedScene" uid="uid://b1v8pbmdnfeuv" path="res://GUI/game_over/game_over.tscn" id="5_02try"]
-[ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="8_2osu4"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_jw5v4")
@@ -37,12 +36,9 @@ offset = 40.0
 [node name="FoodContainer" type="Node2D" parent="."]
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("food_container") instance=ExtResource("4_fp0d6")]
-max_spawnrate = 0.7
+max_spawnrate = 0.14
 lvl_up = 15
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
 dif_level = 0.5
 powerup_spawn_per = 15.0
-
-[node name="Kapi" parent="." instance=ExtResource("8_2osu4")]
-position = Vector2(310, 432)

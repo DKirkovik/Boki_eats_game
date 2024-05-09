@@ -1,14 +1,19 @@
 extends Area2D
 
+
 @onready var bounce_area = $BounceArea
 @onready var sprite_2d = $Sprite2D
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var timer = $Timer
 @onready var start_timer = $StartTimer
 
+##Bounc particles
 @export var particles_scene: PackedScene
+##Bouncing force
 @export var bounce_force:float
+##Time the powerup lasts
 @export var powerup_time:float
+##Offset at withc particles spawn
 @export var particle_offset: float
 
 var is_bounce:bool = false
@@ -16,7 +21,6 @@ var is_bounce:bool = false
 func _ready():
 	bounce_area.monitoring = false
 	sprite_2d.hide()
-	timer.wait_time = powerup_time
 	GameManager.jelly_powerup.connect(start_powerup)
 
 
@@ -48,7 +52,8 @@ func _on_bounce_area_area_entered(area):
 		spawn_particles(area.global_position)
 		area.bounce_back(bounce_force)
 
-func start_powerup() ->void:
+func start_powerup(_time) ->void:
+	timer.wait_time = _time
 	start_timer.start()
 
 func spawn_particles(pos:Vector2) ->void:

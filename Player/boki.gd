@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+##Max movment speed
 @export var max_speed:float
+##Max player HP
 @export var max_hp:int
+##Screen clamp offset
 @export var offset:float
+##Main menu song
 @export var song: AudioStream
+##Eating food particles
 @export var food_particles : PackedScene
 
 var speed:float
@@ -48,7 +53,7 @@ func _on_hit_box_area_entered(area):
 		if !is_dead:
 			spawn_particles()
 			area.queue_free()
-			if area.is_trash:
+			if area.is_trash && !area.has_method("start_powerup"):
 				GameManager.on_lives_changed(-1)
 				take_dmg()
 				audio_blee.play()
@@ -63,7 +68,6 @@ func _on_hit_box_area_entered(area):
 func on_game_over() ->void:
 	is_dead = true
 	set_physics_process(false)
-	print("dead")
 	self.hide()
 
 

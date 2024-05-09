@@ -3,8 +3,9 @@ extends Node
 signal score_changed(score:float)
 signal lives_changed(lives:int)
 signal game_over()
-signal jelly_powerup()
+signal jelly_powerup(_time:float)
 signal scene_changed()
+signal mute_audio()
 
 
 var max_score:float
@@ -46,3 +47,7 @@ func change_game_scene() ->void:
 func change_menu_scene() ->void:
 	get_tree().change_scene_to_packed(menu_scene)
 	scene_changed.emit()
+
+func one_up(_lives:int) ->void:
+	lives +=_lives
+	lives_changed.emit(lives)
