@@ -6,7 +6,7 @@ signal game_over()
 signal jelly_powerup(_time:float)
 signal scene_changed()
 signal mute_audio()
-
+signal game_start()
 
 var max_score:float
 var score:float
@@ -21,9 +21,15 @@ func on_score_changed(_score:float) ->void:
 	if !is_game_over:
 		score += _score
 		score_changed.emit(score)
+		if score > max_score:
+			max_score = score
 	
 func get_score() ->float:
 	return score
+
+func reset_score() ->void:
+	score = 0
+	score_changed.emit(score)
 
 func set_lives(_lives:int) ->void:
 	lives = _lives

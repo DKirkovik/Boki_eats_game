@@ -10,11 +10,13 @@ extends CharacterBody2D
 @export var song: AudioStream
 ##Eating food particles
 @export var food_particles : PackedScene
+@export var color_slowed: Color
 
 var speed:float
 var hp:int
 var screen_w
 var is_dead:bool = false
+var is_slowed: bool = false
 
 @onready var animation_player = $AnimationPlayer
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -31,7 +33,7 @@ func _ready():
 	GameManager.set_lives(hp)
 	GameManager.game_over.connect(on_game_over)
 	GameManager.is_game_over = false
-	
+	GameManager.game_start.connect(start_game)
 
 func _physics_process(delta):
 	
@@ -94,3 +96,6 @@ func change_speed(_speed:float,_time) ->void:
 
 func _on_debuff_timeout():
 	speed = max_speed
+
+func start_game() ->void:
+	set_physics_process(true)

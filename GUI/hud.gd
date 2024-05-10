@@ -7,10 +7,12 @@ extends Control
 
 
 func _ready():
+	hide()
+	GameManager.game_start.connect(start_game)
 	GameManager.score_changed.connect(update_lable)
 	GameManager.lives_changed.connect(update_lives)
 	GameManager.mute_audio.connect(mute_music)
-	update_lable(0)
+	GameManager.reset_score()
 	update_lives(GameManager.get_lives())
 	game_music.play()
 
@@ -28,3 +30,6 @@ func update_lable(_score:float)->void:
 func update_lives(_lives:int) ->void:
 	lives_label.text = str(_lives)
 	animation_player.play("idle")
+
+func start_game() ->void:
+		show()

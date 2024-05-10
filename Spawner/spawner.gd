@@ -31,6 +31,7 @@ var speed_percent:float = 0.9
 
 func _ready():
 	GameManager.game_over.connect(on_game_over)
+	GameManager.game_start.connect(start_game)
 	
 	if food_scenes == null:
 		print("nothing to spawn")
@@ -101,3 +102,6 @@ func try_spawn_powerup() ->void:
 		
 func on_game_over()->void:
 	timer.stop()
+
+func start_game() ->void:
+	timer.start()
