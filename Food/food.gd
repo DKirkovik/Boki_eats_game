@@ -1,17 +1,19 @@
 extends Area2D
 
+## Max speed
 @export var max_speed:Vector2
+## Movment direction
 @export var direction:Vector2
+## Range of points
 @export var points_range:Vector2
+## Is it trash
 @export var is_trash:bool
 
 var speed:float
 var points:int
 
-
 func _ready():
 	points = randomize_points(points_range)
-	speed = randomize_speed(max_speed)
 
 func _physics_process(delta):
 	position += direction * speed * delta
@@ -31,10 +33,11 @@ func get_points() -> float:
 	else:
 		return points
 
+func set_speed(_speed_perc) ->void:
+	speed = randomize_speed(max_speed * _speed_perc)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
-
 
 func bounce_back(force:float) ->void:
 	position.y += -direction.y * force

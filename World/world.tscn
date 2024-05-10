@@ -23,7 +23,7 @@ powerup_time = 10.0
 
 [node name="Boki" parent="." instance=ExtResource("1_khhgq")]
 position = Vector2(294, 892)
-max_speed = 600.0
+max_speed = 500.0
 max_hp = 3
 offset = 40.0
 
@@ -36,9 +36,9 @@ offset = 40.0
 [node name="FoodContainer" type="Node2D" parent="."]
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("food_container") instance=ExtResource("4_fp0d6")]
-max_spawnrate = 0.14
-lvl_up = 15
+max_spawnrate = 1.4
+lvl_up = 20
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
-dif_level = 0.5
+dif_level = 0.4
 powerup_spawn_per = 15.0

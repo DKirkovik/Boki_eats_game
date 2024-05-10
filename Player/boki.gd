@@ -21,6 +21,7 @@ var is_dead:bool = false
 @onready var audio_stream_burgir = $AudioStreamBurgir
 @onready var audio_blee = $AudioBlee
 @onready var marker_2d = $Marker2D
+@onready var debuff = $Debuff
 
 
 func _ready():
@@ -46,6 +47,7 @@ func _physics_process(delta):
 func _on_hit_box_area_entered(area):
 	if area.has_method("start_powerup"):
 		area.start_powerup()
+		change_speed(max_speed*2,2)
 		animation_player.play("power_up")
 		
 	if area.has_method("get_points"):
@@ -57,6 +59,7 @@ func _on_hit_box_area_entered(area):
 				GameManager.on_lives_changed(-1)
 				take_dmg()
 				audio_blee.play()
+				change_speed(max_speed/2,5)
 				return
 			if area.is_in_group("Burgir"):
 				audio_stream_burgir.play()
@@ -81,3 +84,13 @@ func spawn_particles() ->void:
 func take_dmg() ->void:
 	if !animation_player.is_playing():
 		animation_player.play("take_dmg")
+
+
+func change_speed(_speed:float,_time) ->void:
+	speed = _speed
+	debuff.wait_time = _time
+	debuff.start()
+
+
+func _on_debuff_timeout():
+	speed = max_speed

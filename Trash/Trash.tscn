@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv4dw238xylqv"]
+[gd_scene load_steps=6 format=3 uid="uid://cv4dw238xylqv"]
 
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="1_hudr3"]
 [ext_resource type="Shader" path="res://PowerUp/monster.gdshader" id="2_s4xyj"]
@@ -9,7 +9,10 @@ shader = ExtResource("2_s4xyj")
 shader_parameter/line_color = Color(0.933333, 0, 0, 1)
 shader_parameter/line_thickness = 20.0
 
-[node name="Food" instance=ExtResource("1_hudr3")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbphy"]
+radius = 33.0
+
+[node name="Brocoli" instance=ExtResource("1_hudr3")]
 is_trash = true
 
 [node name="Sprite2D" parent="." index="0"]
@@ -23,4 +26,8 @@ modulate = Color(1, 0, 0.184314, 0.396078)
 texture = ExtResource("3_tq176")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-2, 3)
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_jbphy")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-1, -4)

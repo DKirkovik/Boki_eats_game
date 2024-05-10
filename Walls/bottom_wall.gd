@@ -1,11 +1,7 @@
 extends Area2D
 
 
-@onready var bounce_area = $BounceArea
-@onready var sprite_2d = $Sprite2D
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
-@onready var timer = $Timer
-@onready var start_timer = $StartTimer
+
 
 ##Bounc particles
 @export var particles_scene: PackedScene
@@ -15,6 +11,12 @@ extends Area2D
 @export var powerup_time:float
 ##Offset at withc particles spawn
 @export var particle_offset: float
+
+@onready var bounce_area = $BounceArea
+@onready var sprite_2d = $Sprite2D
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var timer = $Timer
+@onready var start_timer = $StartTimer
 
 var is_bounce:bool = false
 

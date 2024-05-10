@@ -12,6 +12,7 @@ var max_score:float
 var score:float
 var is_game_over:bool = false
 var lives:int
+
 var game_scene: PackedScene = load("res://World/world.tscn")
 var menu_scene: PackedScene = load("res://GUI/main_menu/main_menu.tscn")
 

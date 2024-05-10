@@ -1,11 +1,18 @@
 extends Area2D
 
+## Max move speed
 @export var max_speed:float
+## Move direction
 @export var direction:Vector2
+##Is other powerup
 @export var is_kapi:bool  #Make Enum for diff powerups
+##Is trash
 @export var is_trash:bool
+## Amount of lives to give
 @export var lives_amount:int
+## Time powerup lasts
 @export var powerup_time:float
+##SFX 
 @export var sfx:PackedScene
 
 var speed:float
