@@ -16,7 +16,6 @@ func _on_exit_pressed():
 
 
 func _on_scores_pressed():
-	print("Scores")
 	OS.shell_open("https://ko-fi.com/humanbones/donate")
 
 func music_settings() ->void:
@@ -24,3 +23,7 @@ func music_settings() ->void:
 		main_menu_music.stop()
 	else:
 		main_menu_music.play()
+
+
+func _on_scoreboard_pressed():
+	GameManager.change_scoreboard_scene()

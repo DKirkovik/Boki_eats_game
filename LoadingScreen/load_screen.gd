@@ -1,7 +1,7 @@
 extends Control
 
 @onready var timer = $Timer
-@onready var progress_bar = $ColorRect/CenterContainer/VBoxContainer/ProgressBar
+@onready var progress_bar = $ColorRect/VBoxContainer/ProgressBar
 @onready var animation_player = $AnimationPlayer
 
 @export var obj_to_load: Array

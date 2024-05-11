@@ -15,7 +15,7 @@ var lives:int
 
 var game_scene: PackedScene = load("res://World/world.tscn")
 var menu_scene: PackedScene = load("res://GUI/main_menu/main_menu.tscn")
-
+var scoreboard_scene:PackedScene = load("res://Scoreboard/scoreboard.tscn")
 
 func on_score_changed(_score:float) ->void:
 	if !is_game_over:
@@ -53,6 +53,10 @@ func change_game_scene() ->void:
 	
 func change_menu_scene() ->void:
 	get_tree().change_scene_to_packed(menu_scene)
+	scene_changed.emit()
+
+func change_scoreboard_scene() ->void:
+	get_tree().change_scene_to_packed(scoreboard_scene)
 	scene_changed.emit()
 
 func one_up(_lives:int) ->void:

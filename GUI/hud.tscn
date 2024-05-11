@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://6miqyx3x5ovf"]
 
 [ext_resource type="Script" path="res://GUI/hud.gd" id="1_anr25"]
-[ext_resource type="LabelSettings" uid="uid://bqj4wsmbp8q75" path="res://Assets/Fonts/score_font.tres" id="1_fq0oi"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_ifkqp"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="3_qwm5q"]
 [ext_resource type="AudioStream" uid="uid://dtxbl0gxtlli2" path="res://Assets/Music/one_0.wav" id="5_uecvu"]
@@ -14,6 +13,17 @@ font_size = 72
 font_color = Color(0.733333, 0.878431, 0.235294, 1)
 outline_size = 3
 outline_color = Color(0.211765, 0.705882, 0.278431, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.847059)
+shadow_offset = Vector2(6, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a51ap"]
+line_spacing = 5.0
+font = ExtResource("2_ifkqp")
+font_size = 32
+font_color = Color(0.160784, 0.94902, 0.101961, 1)
+outline_size = 3
+outline_color = Color(0.105882, 0.372549, 0.141176, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.847059)
 shadow_offset = Vector2(6, 10)
@@ -160,7 +170,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "000"
-label_settings = ExtResource("1_fq0oi")
+label_settings = SubResource("LabelSettings_a51ap")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -170,10 +180,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -50.5
-offset_right = 25.0
-offset_bottom = 69.5
+offset_left = -76.0
+offset_top = -58.5
+offset_right = 24.0
+offset_bottom = 61.5
 grow_vertical = 2
 pivot_offset = Vector2(48, 58)
 texture = ExtResource("3_qwm5q")
