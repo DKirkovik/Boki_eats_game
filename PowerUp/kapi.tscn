@@ -13,6 +13,3 @@ sfx = ExtResource("2_70qhf")
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_14y68")
-
-[node name="GPUParticles2D" parent="." index="2"]
-position = Vector2(0, -47)

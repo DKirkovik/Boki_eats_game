@@ -1,37 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci1nv8jqi66y8"]
+[gd_scene load_steps=2 format=3 uid="uid://ci1nv8jqi66y8"]
 
 [ext_resource type="Script" path="res://Player/food_crumbs.gd" id="1_iy043"]
 
-[sub_resource type="Curve" id="Curve_hgbcp"]
-max_value = 3.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_e5ktj"]
-curve = SubResource("Curve_hgbcp")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_scc4s"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(60, 10, 1)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(1, 1, 0)
-spread = 180.0
-gravity = Vector3(0, 100, 0)
-radial_accel_max = 100.0
-scale_max = 3.0
-scale_over_velocity_max = 50.0
-scale_over_velocity_curve = SubResource("CurveTexture_e5ktj")
-color = Color(0.984314, 0.592157, 0.294118, 1)
-hue_variation_max = 0.25
-
-[node name="FoodCrumbs" type="GPUParticles2D"]
+[node name="FoodCrumbs" type="CPUParticles2D"]
 position = Vector2(0, 19)
+emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_scc4s")
-preprocess = 2.0
+lifetime = 1.1
+preprocess = 0.2
 explosiveness = 1.0
 randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+gravity = Vector2(2.08165e-12, 90)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angle_max = 45.0
+scale_amount_min = 0.8
+scale_amount_max = 2.0
+color = Color(0.974954, 0.781438, 0.413809, 1)
 script = ExtResource("1_iy043")
 
 [node name="Timer" type="Timer" parent="."]

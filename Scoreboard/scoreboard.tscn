@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnpntvhcsos2h"]
+[gd_scene load_steps=6 format=3 uid="uid://cnpntvhcsos2h"]
 
+[ext_resource type="Script" path="res://Scoreboard/scoreboard.gd" id="1_44moo"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_kbfuc"]
-[ext_resource type="LabelSettings" uid="uid://dmkt5sqr2clce" path="res://Assets/Fonts/Lable scoreboard.tres" id="1_ts6c1"]
+[ext_resource type="PackedScene" uid="uid://21ir5dsftxpc" path="res://Scoreboard/score_name_container.tscn" id="3_6vsrg"]
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="3_nrxpl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcytn"]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_44moo")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -61,163 +63,11 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 200
 
-[node name="Names" type="VBoxContainer" parent="Panel/ScoreContainer"]
+[node name="NamesContainer" type="VBoxContainer" parent="Panel/ScoreContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
 
-[node name="Name" type="Label" parent="Panel/ScoreContainer/Names"]
+[node name="ScoreNameContainer" parent="Panel/ScoreContainer/NamesContainer" instance=ExtResource("3_6vsrg")]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name2" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name3" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name4" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name5" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name6" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name7" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name8" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name9" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Name10" type="Label" parent="Panel/ScoreContainer/Names"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Darko"
-label_settings = ExtResource("1_ts6c1")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Score" type="VBoxContainer" parent="Panel/ScoreContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Score" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score2" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score3" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score4" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score5" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score6" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score7" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score8" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score9" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
-
-[node name="Score10" type="Label" parent="Panel/ScoreContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "9999"
-label_settings = ExtResource("1_ts6c1")
-vertical_alignment = 1
 
 [node name="ButtonContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -237,14 +87,14 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 150
 
-[node name="Back" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Back
-"
-
 [node name="Play" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Play
+"
+
+[node name="Back" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back
 "

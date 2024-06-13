@@ -168,7 +168,7 @@ shape = SubResource("CircleShape2D_h6a1f")
 stream = SubResource("AudioStreamRandomizer_xc6fr")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 27)
+position = Vector2(0, 18)
 
 [node name="AudioBlee" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_val6b")

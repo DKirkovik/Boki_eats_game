@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://21ir5dsftxpc"]
+
+[ext_resource type="Script" path="res://Scoreboard/score_name_container.gd" id="1_8umgl"]
+[ext_resource type="LabelSettings" uid="uid://dmkt5sqr2clce" path="res://Assets/Fonts/Lable scoreboard.tres" id="1_c0gfi"]
+
+[node name="ScoreNameContainer" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_8umgl")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Darko"
+label_settings = ExtResource("1_c0gfi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "9999"
+label_settings = ExtResource("1_c0gfi")
+vertical_alignment = 1

@@ -1,15 +1,19 @@
 extends Control
 
 @onready var main_menu_music = $MainMenuMusic
+@onready var panel_container = $CanvasLayer/MarginContainer/VBoxContainer/PanelContainer
+
+func _ready():
+	panel_container.hide()
 
 func _process(delta):
 	if Input.is_action_just_pressed("mute"):
 		music_settings()
 		GameManager.mute_audio.emit()
 
-func _on_start_pressed():
-	GameManager.change_game_scene()
 
+func _on_start_pressed():
+	panel_container.show()
 
 func _on_exit_pressed():
 	get_tree().quit()

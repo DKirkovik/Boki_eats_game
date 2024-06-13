@@ -22,7 +22,6 @@ func loead_shaders() ->void:
 			obj_instance.set_physics_process(false)
 			obj_instance.z_index = -1
 			call_deferred("add_child",obj_instance)
-			print("child added",obj_instance)
 			obj_to_delete.append(obj_instance)
 
 
