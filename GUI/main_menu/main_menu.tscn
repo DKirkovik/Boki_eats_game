@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqdfwyb3mesir"]
+[gd_scene load_steps=8 format=3 uid="uid://bqdfwyb3mesir"]
 
 [ext_resource type="Texture2D" uid="uid://g48oupc0o1p2" path="res://Assets/Sprites/mainMenu_boki.png" id="1_n1km4"]
 [ext_resource type="Script" path="res://GUI/main_menu/main_menu.gd" id="1_rbqlr"]
@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="3_4x3t5"]
 [ext_resource type="PackedScene" uid="uid://bac5s1ggnf17w" path="res://GUI/main_menu/test_pop_up.tscn" id="3_m1kn6"]
 [ext_resource type="AudioStream" uid="uid://cxr8hu04yr3bu" path="res://Assets/Music/carnival_of_strangeness.wav" id="4_hg8uo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvvg4"]
+line_spacing = 5.0
+font = ExtResource("2_k70hb")
+font_size = 32
+font_color = Color(0.858824, 0.94902, 0.101961, 1)
+outline_size = 3
+outline_color = Color(0.105882, 0.372549, 0.141176, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.847059)
+shadow_offset = Vector2(3, 6)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -45,9 +56,31 @@ size_flags_vertical = 4
 theme_override_constants/separation = 50
 
 [node name="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("3_m1kn6")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="NameContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="PlayerName" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "asdfasdffffff"
+label_settings = SubResource("LabelSettings_rvvg4")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Change
+"
 
 [node name="Start" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("3_4x3t5")]
 layout_mode = 2
@@ -56,10 +89,10 @@ theme_override_font_sizes/font_size = 64
 [node name="FeedBoki" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
@@ -71,10 +104,10 @@ icon_alignment = 1
 [node name="Scoreboard" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
@@ -86,10 +119,10 @@ icon_alignment = 1
 [node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
@@ -102,6 +135,7 @@ icon_alignment = 1
 stream = ExtResource("4_hg8uo")
 autoplay = true
 
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/NameContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/FeedBoki" to="." method="_on_scores_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Scoreboard" to="." method="_on_scoreboard_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1v8pbmdnfeuv"]
+[gd_scene load_steps=9 format=3 uid="uid://b1v8pbmdnfeuv"]
 
 [ext_resource type="Texture2D" uid="uid://cfm7g270ph4ud" path="res://Assets/Sprites/game_over_lol.png" id="1_alxtq"]
 [ext_resource type="Script" path="res://GUI/game_over/game_over.gd" id="1_nb3hy"]
 [ext_resource type="AudioStream" uid="uid://balk0yn5dott0" path="res://Assets/SFX/defeat_lol.wav" id="2_wyakk"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_efcbb"]
+[ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="4_pg7v8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ywy2"]
 line_spacing = 5.0
@@ -55,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 150
-theme_override_constants/margin_bottom = 300
+theme_override_constants/margin_bottom = 200
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
@@ -64,6 +65,7 @@ size_flags_vertical = 0
 texture = ExtResource("1_alxtq")
 
 [node name="Label" type="Label" parent="MarginContainer"]
+visible = false
 modulate = Color(1, 0.603922, 0.517647, 1)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -72,6 +74,25 @@ text = "Press R to restart"
 label_settings = SubResource("LabelSettings_2ywy2")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Again" parent="MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_pg7v8")]
+layout_mode = 2
+text = "Try Again
+"
+
+[node name="Exit" parent="MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_pg7v8")]
+layout_mode = 2
+text = "Exit
+"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_wyakk")
@@ -90,5 +111,7 @@ autoplay = "blink_text"
 wait_time = 2.0
 one_shot = true
 
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

@@ -22,3 +22,11 @@ func _on_timer_timeout():
 
 func _on_text_timer_timeout():
 	label.show()
+
+
+func _on_again_pressed():
+	GameManager.change_game_scene()
+
+
+func _on_exit_pressed():
+	GameManager.change_menu_scene()

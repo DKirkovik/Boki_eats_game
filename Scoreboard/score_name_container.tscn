@@ -17,7 +17,6 @@ script = ExtResource("1_8umgl")
 [node name="Name" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Darko"
 label_settings = ExtResource("1_c0gfi")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -25,6 +24,12 @@ vertical_alignment = 1
 [node name="Score" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "9999"
 label_settings = ExtResource("1_c0gfi")
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
