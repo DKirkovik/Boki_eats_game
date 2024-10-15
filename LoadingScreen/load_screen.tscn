@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://wiujqmi85k2t"]
+[gd_scene load_steps=17 format=3 uid="uid://wiujqmi85k2t"]
 
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_7y5ay"]
 [ext_resource type="Script" path="res://LoadingScreen/load_screen.gd" id="1_e730a"]
+[ext_resource type="Resource" uid="uid://dolwxxjsdly2t" path="res://Assets/Text_tip/text_tip.tres" id="2_rewf5"]
 [ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="2_t8kar"]
 [ext_resource type="LabelSettings" uid="uid://bqj4wsmbp8q75" path="res://Assets/Fonts/score_font.tres" id="2_vnvy0"]
 [ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="3_8m2ug"]
@@ -126,6 +127,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e730a")
+tip_text = ExtResource("2_rewf5")
 obj_to_load = [ExtResource("2_t8kar"), ExtResource("3_8m2ug"), ExtResource("4_vpjih"), ExtResource("5_hjhob"), ExtResource("6_5qxbf")]
 
 [node name="ColorRect" type="ColorRect" parent="."]

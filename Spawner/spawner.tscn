@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Spawner/spawner.gd" id="1_vbwcw"]
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="2_4fg7j"]
-[ext_resource type="PackedScene" uid="uid://bshqhfhqo4opj" path="res://Food/cake.tscn" id="2_a0pml"]
+[ext_resource type="PackedScene" uid="uid://bshqhfhqo4opj" path="res://Food/burgir.tscn" id="2_a0pml"]
 [ext_resource type="PackedScene" uid="uid://cv4dw238xylqv" path="res://Trash/Trash.tscn" id="4_mes4e"]
 [ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="4_y2cp4"]
 [ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="5_rfbhk"]

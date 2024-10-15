@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bshqhfhqo4opj"]
+
+[ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="1_f8c4i"]
+[ext_resource type="Texture2D" uid="uid://c21blg3ov8qlm" path="res://Assets/Sprites/burgir.png" id="2_wcrtg"]
+
+[node name="Burgir" groups=["Burgir"] instance=ExtResource("1_f8c4i")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wcrtg")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 3)

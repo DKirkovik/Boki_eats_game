@@ -121,11 +121,10 @@ _data = {
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uaoov"]
 streams_count = 2
 stream_0/stream = ExtResource("5_uecvu")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("6_q7pb8")
-stream_1/weight = 1.0
 
 [node name="HUD" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

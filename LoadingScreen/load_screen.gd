@@ -3,12 +3,15 @@ extends Control
 @onready var timer = $Timer
 @onready var progress_bar = $ColorRect/VBoxContainer/ProgressBar
 @onready var animation_player = $AnimationPlayer
+@onready var rich_text_label: RichTextLabel = $ColorRect/VBoxContainer/RichTextLabel
 
+@export var tip_text : TextTip
 @export var obj_to_load: Array
 var obj_to_delete:Array
 
 func _ready():
 	show()
+	pick_random_tip()
 	loead_shaders()
 	
 func _process(delta):
@@ -31,3 +34,6 @@ func _on_timer_timeout():
 			obj.call_deferred("queue_free")
 	animation_player.play("fade_out")
 	GameManager.game_start.emit()
+
+func pick_random_tip() ->void:
+	rich_text_label.text = tip_text.text_array.pick_random()

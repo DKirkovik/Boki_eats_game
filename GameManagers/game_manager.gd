@@ -8,6 +8,7 @@ signal scene_changed()
 signal mute_audio()
 signal game_start()
 signal player_name_changed
+signal game_paused()
 
 var max_list_size := 10
 var max_score:float
@@ -25,7 +26,6 @@ var scoreboard_scene:PackedScene = load("res://Scoreboard/scoreboard.tscn")
 func _ready():
 	game_over.connect(_on_game_over)
 	fill_list()
-
 
 func on_score_changed(_score:float) ->void:
 	if !is_game_over:

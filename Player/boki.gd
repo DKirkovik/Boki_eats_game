@@ -50,6 +50,7 @@ func _on_hit_box_area_entered(area):
 	if area.has_method("start_powerup"):
 		area.start_powerup()
 		change_speed(max_speed*2,2)
+		animation_player.stop()
 		animation_player.play("power_up")
 		
 	if area.has_method("get_points"):
@@ -67,8 +68,8 @@ func _on_hit_box_area_entered(area):
 				audio_stream_burgir.play()
 			else:
 				audio_stream_player_2d.play()
-			if !animation_player.is_playing():
-				animation_player.play("eat")
+			animation_player.stop()
+			animation_player.play("eat")
 
 func on_game_over() ->void:
 	is_dead = true
@@ -84,8 +85,8 @@ func spawn_particles() ->void:
 	
 
 func take_dmg() ->void:
-	if !animation_player.is_playing():
-		animation_player.play("take_dmg")
+	animation_player.stop()
+	animation_player.play("take_dmg")
 
 
 func change_speed(_speed:float,_time) ->void:
