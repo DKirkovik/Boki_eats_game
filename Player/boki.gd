@@ -24,6 +24,7 @@ var is_slowed: bool = false
 @onready var audio_blee = $AudioBlee
 @onready var marker_2d = $Marker2D
 @onready var debuff = $Debuff
+@onready var take_dmg_audio: AudioStreamPlayer2D = $TakeDmg
 
 
 func _ready():
@@ -34,6 +35,7 @@ func _ready():
 	GameManager.game_over.connect(on_game_over)
 	GameManager.is_game_over = false
 	GameManager.game_start.connect(start_game)
+	GameManager.life_lost.connect(take_dmg)
 
 func _physics_process(delta):
 	
@@ -59,9 +61,7 @@ func _on_hit_box_area_entered(area):
 			spawn_particles()
 			area.queue_free()
 			if area.is_trash && !area.has_method("start_powerup"):
-				GameManager.on_lives_changed(-1)
-				take_dmg()
-				audio_blee.play()
+				GameManager.on_lives_changed(-1,true)
 				change_speed(max_speed/2,5)
 				return
 			if area.is_in_group("Burgir"):
@@ -84,8 +84,12 @@ func spawn_particles() ->void:
 		get_parent().add_child(parctile_instance)
 	
 
-func take_dmg() ->void:
+func take_dmg(is_trash:bool) ->void:
 	animation_player.stop()
+	if !is_trash:
+		take_dmg_audio.play()
+	else:
+		audio_blee.play()
 	animation_player.play("take_dmg")
 
 

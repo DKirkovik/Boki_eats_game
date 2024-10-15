@@ -28,7 +28,7 @@ func _ready():
 
 func _on_area_entered(area):
 	if area.has_method("get_points") && !is_bounce && !area.is_trash:
-		GameManager.on_lives_changed(-1)
+		GameManager.on_lives_changed(-1,false)
 		
 		
 func activate_bounce() ->void:

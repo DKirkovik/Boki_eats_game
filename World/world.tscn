@@ -41,7 +41,6 @@ max_spawnrate = 1.4
 lvl_up = 20
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
-dif_level = 0.4
 powerup_spawn_per = 15.0
 
 [node name="LoadScreen" parent="." instance=ExtResource("8_1mxdj")]

@@ -87,6 +87,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = 150
 
 [node name="Play" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Play
@@ -94,7 +95,7 @@ text = "Play
 
 [node name="Back" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 text = "Back
 "
 

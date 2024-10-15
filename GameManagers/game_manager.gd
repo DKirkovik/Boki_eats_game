@@ -9,6 +9,8 @@ signal mute_audio()
 signal game_start()
 signal player_name_changed
 signal game_paused()
+signal life_lost(is_trash:bool)
+
 
 var max_list_size := 10
 var max_score:float
@@ -48,10 +50,12 @@ func set_lives(_lives:int) ->void:
 func get_lives() ->int:
 	return lives
 
-func on_lives_changed(_lives:float) ->void:
+func on_lives_changed(_lives:float,is_trash:bool) ->void:
 	if lives > 0:
 		lives+= _lives
 		lives_changed.emit(lives)
+		if _lives <0:
+			life_lost.emit(is_trash)
 	elif !is_game_over:
 		is_game_over = true
 		game_over.emit()

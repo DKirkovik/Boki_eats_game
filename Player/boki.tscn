@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfrbjq7wjs8rt"]
+[gd_scene load_steps=23 format=3 uid="uid://cfrbjq7wjs8rt"]
 
 [ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="1_nq5cs"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bw5q0i5rqf4a" path="res://Assets/SFX/burgi.wav" id="7_gihy4"]
 [ext_resource type="PackedScene" uid="uid://ci1nv8jqi66y8" path="res://Player/food_crumbs.tscn" id="8_g3h05"]
 [ext_resource type="AudioStream" uid="uid://4of0bw4vcxm0" path="res://Assets/SFX/bleeh.wav" id="9_kct4x"]
+[ext_resource type="AudioStream" uid="uid://bpjajawx8osq0" path="res://Assets/SFX/take_dmg.wav" id="10_smo88"]
+[ext_resource type="AudioStream" uid="uid://b62okm0ydfsx1" path="res://Assets/SFX/take_dmg_2.wav" id="11_onntm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vop88"]
 size = Vector2(53, 113)
@@ -130,6 +132,12 @@ stream_0/stream = ExtResource("7_gihy4")
 streams_count = 1
 stream_0/stream = ExtResource("9_kct4x")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8jifu"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("10_smo88")
+stream_1/stream = ExtResource("11_onntm")
+
 [node name="Boki" type="CharacterBody2D"]
 script = ExtResource("1_l6qle")
 song = ExtResource("2_slgxc")
@@ -169,6 +177,9 @@ stream = SubResource("AudioStreamRandomizer_val6b")
 
 [node name="Debuff" type="Timer" parent="."]
 one_shot = true
+
+[node name="TakeDmg" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8jifu")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Debuff" to="." method="_on_debuff_timeout"]

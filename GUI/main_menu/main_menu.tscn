@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_k70hb"]
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="3_4x3t5"]
 [ext_resource type="PackedScene" uid="uid://bac5s1ggnf17w" path="res://GUI/main_menu/test_pop_up.tscn" id="3_m1kn6"]
-[ext_resource type="AudioStream" uid="uid://cxr8hu04yr3bu" path="res://Assets/Music/carnival_of_strangeness.wav" id="4_hg8uo"]
+[ext_resource type="PackedScene" uid="uid://bsywe27ea4162" path="res://GUI/main_menu/main_menu_music.tscn" id="6_3xg4l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rvvg4"]
 line_spacing = 5.0
@@ -131,9 +131,7 @@ text = "Exit
 "
 icon_alignment = 1
 
-[node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_hg8uo")
-autoplay = true
+[node name="MainMenuMusic" parent="." instance=ExtResource("6_3xg4l")]
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/NameContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
