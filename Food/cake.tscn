@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://jecyaf543qeq"]
+
+[ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="1_43j25"]
+[ext_resource type="Texture2D" uid="uid://ck43y7ljfv3bp" path="res://Assets/Sprites/cake.png" id="2_1ljyt"]
+
+[node name="Cake" instance=ExtResource("1_43j25")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(5, -6)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ljyt")

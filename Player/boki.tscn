@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfrbjq7wjs8rt"]
+[gd_scene load_steps=25 format=3 uid="uid://cfrbjq7wjs8rt"]
 
 [ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="1_nq5cs"]
 [ext_resource type="AudioStream" uid="uid://ccrbq76tsg2sh" path="res://Assets/SFX/omom2.wav" id="2_slgxc"]
 [ext_resource type="AudioStream" uid="uid://dxbkr7bc0fshm" path="res://Assets/SFX/OmOm1.wav" id="3_qf5xk"]
+[ext_resource type="Shader" path="res://PowerUp/monster.gdshader" id="5_2i54i"]
 [ext_resource type="AudioStream" uid="uid://wo0gfrnrp0vn" path="res://Assets/SFX/omom3.wav" id="5_gq6qy"]
 [ext_resource type="AudioStream" uid="uid://c3a3eusjx68mu" path="res://Assets/SFX/omom4.wav" id="6_41324"]
 [ext_resource type="AudioStream" uid="uid://bw5q0i5rqf4a" path="res://Assets/SFX/burgi.wav" id="7_gihy4"]
@@ -11,6 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://4of0bw4vcxm0" path="res://Assets/SFX/bleeh.wav" id="9_kct4x"]
 [ext_resource type="AudioStream" uid="uid://bpjajawx8osq0" path="res://Assets/SFX/take_dmg.wav" id="10_smo88"]
 [ext_resource type="AudioStream" uid="uid://b62okm0ydfsx1" path="res://Assets/SFX/take_dmg_2.wav" id="11_onntm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfxas"]
+shader = ExtResource("5_2i54i")
+shader_parameter/is_active = true
+shader_parameter/line_color = Color(0.933333, 1, 0, 1)
+shader_parameter/line_thickness = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vop88"]
 size = Vector2(53, 113)
@@ -28,6 +35,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wi110"]
@@ -65,10 +84,10 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.366667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.211765, 0.72549, 0.317647, 1), Color(1, 1, 1, 1)]
@@ -92,11 +111,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
+"times": PackedFloat32Array(0, 0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.839216, 0.0196078, 0.356863, 1), Color(1, 1, 1, 1)]
@@ -140,11 +159,19 @@ stream_1/stream = ExtResource("11_onntm")
 
 [node name="Boki" type="CharacterBody2D"]
 script = ExtResource("1_l6qle")
+max_speed = 500.0
+max_hp = 50
+offset = 40.0
 song = ExtResource("2_slgxc")
 food_particles = ExtResource("8_g3h05")
-color_slowed = Color(0.909804, 0.878431, 0, 1)
+color_slowed = Color(0.909804, 0.243137, 0, 1)
+color_fast = Color(0.866667, 1, 0, 1)
+slowed_time = 3.0
+fast_time = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dfxas")
+position = Vector2(-10, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_nq5cs")
 

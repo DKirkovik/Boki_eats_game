@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clq88vx67f27o"]
+
+[ext_resource type="Shader" path="res://PowerUp/monster.gdshader" id="1_14sw7"]
+
+[resource]
+shader = ExtResource("1_14sw7")
+shader_parameter/is_active = true
+shader_parameter/line_color = Color(0.933333, 0.0196078, 0, 1)
+shader_parameter/line_thickness = 20.0

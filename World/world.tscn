@@ -24,9 +24,6 @@ powerup_time = 10.0
 
 [node name="Boki" parent="." instance=ExtResource("1_khhgq")]
 position = Vector2(294, 892)
-max_speed = 500.0
-max_hp = 3
-offset = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,20 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://dctu5ejaupcjc"]
+[gd_scene load_steps=9 format=3 uid="uid://dctu5ejaupcjc"]
 
 [ext_resource type="Script" path="res://Spawner/spawner.gd" id="1_vbwcw"]
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="2_4fg7j"]
 [ext_resource type="PackedScene" uid="uid://bshqhfhqo4opj" path="res://Food/burgir.tscn" id="2_a0pml"]
 [ext_resource type="PackedScene" uid="uid://cv4dw238xylqv" path="res://Trash/Trash.tscn" id="4_mes4e"]
 [ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="4_y2cp4"]
+[ext_resource type="PackedScene" uid="uid://jecyaf543qeq" path="res://Food/cake.tscn" id="5_ejga0"]
 [ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="5_rfbhk"]
+[ext_resource type="PackedScene" uid="uid://jghf78d01w1i" path="res://Trash/carrot.tscn" id="6_4tm5m"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_vbwcw")
-food_scenes = [ExtResource("2_a0pml"), ExtResource("2_4fg7j"), ExtResource("4_mes4e")]
+food_scenes = [ExtResource("2_a0pml"), ExtResource("2_4fg7j"), ExtResource("4_mes4e"), ExtResource("5_ejga0"), ExtResource("6_4tm5m")]
 powerup_scenes = [ExtResource("4_y2cp4"), ExtResource("5_rfbhk")]
 max_spawnrate = 1.0
 spawn_rate_amount = 0.1
 lvl_up = 5
-dif_level = 0.4
+dif_level = 0.6
 
 [node name="Timer" type="Timer" parent="."]
 
