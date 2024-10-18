@@ -46,6 +46,7 @@ func _ready():
 	GameManager.is_game_over = false
 	GameManager.game_start.connect(start_game)
 	GameManager.life_lost.connect(take_dmg)
+	GameManager.speed_powerup.connect(change_speed)
 
 func _physics_process(delta):
 	
@@ -76,7 +77,7 @@ func _on_hit_box_area_entered(area):
 		area.start_powerup()
 		animation_player.stop()
 		animation_player.play("power_up")
-		change_speed(max_speed*2,fast_time)
+		#change_speed(max_speed*2,fast_time)
 		
 	if area.has_method("get_points"):
 		GameManager.on_score_changed(area.get_points())
@@ -85,7 +86,7 @@ func _on_hit_box_area_entered(area):
 			area.queue_free()
 			if area.is_trash && !area.has_method("start_powerup"):
 				GameManager.on_lives_changed(-1,true)
-				change_speed(max_speed/2,slowed_time)
+				change_speed(0.5,slowed_time)
 				return
 			if area.is_in_group("Burgir"):
 				audio_stream_burgir.play()
@@ -117,8 +118,8 @@ func take_dmg(is_trash:bool) ->void:
 	animation_player.play("take_dmg")
 
 
-func change_speed(_speed:float,_time) ->void:
-	speed = _speed
+func change_speed(_speed_mult:float,_time) ->void:
+	speed = speed * _speed_mult
 	speed_color()
 	debuff.wait_time = _time
 	debuff.start()

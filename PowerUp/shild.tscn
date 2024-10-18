@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tvkuut3xnl2u"]
+
+[ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="1_flbf8"]
+
+[node name="Shild" instance=ExtResource("1_flbf8")]
+cur_powerup = 2

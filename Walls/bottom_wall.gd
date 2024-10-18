@@ -1,8 +1,6 @@
 extends Area2D
 
 
-
-
 ##Bounc particles
 @export var particles_scene: PackedScene
 ##Bouncing force
