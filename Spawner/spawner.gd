@@ -19,7 +19,6 @@ extends Node2D
 ## First powerupspawn for debugigng
 @export var powerup_spawn_per:float
 
-
 var spawnrate:float
 var spawned_foods:int
 var spawn_range:Vector2
@@ -44,7 +43,6 @@ func _ready():
 	spawned_foods = 1
 	spawn_range = Vector2(spawn_offset, get_viewport_rect().size.x - spawn_offset)
 	cur_powerup_spawn_per = powerup_spawn_per
-		
 
 func change_spawnrate() ->void:
 	if spawnrate >= dif_level:
@@ -54,11 +52,9 @@ func change_spawnrate() ->void:
 		print("spawnrate changed", spawnrate)
 		timer.wait_time = spawnrate
 
-
 func get_spawnpoint(range:Vector2) ->float:
 	var point = randf_range(range.x, range.y)
 	return point
-
 
 func spawn_food() ->void:
 	var num = randi_range(0,food_scenes.size()-1)
@@ -71,15 +67,12 @@ func spawn_food() ->void:
 		return
 	food_container.add_child(food_instance)
 	spawned_foods +=1
-	
 
 func _on_timer_timeout():
 	spawn_food()
 	try_spawn_powerup()
 	if spawned_foods % lvl_up == 0:
 		change_spawnrate()
-
-
 
 func spawn_powerup() -> void:
 	var num = randi_range(0,powerup_scenes.size()-1)
@@ -90,7 +83,6 @@ func spawn_powerup() -> void:
 		print("nowhere to spawn")
 		return
 	food_container.add_child(powerup_instance)
-
 
 func try_spawn_powerup() ->void:
 	var ran_num = randf_range(0,100)

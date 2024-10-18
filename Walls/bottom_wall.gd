@@ -23,23 +23,19 @@ func _ready():
 	sprite_2d.hide()
 	GameManager.jelly_powerup.connect(start_powerup)
 
-
 func _on_area_entered(area):
 	if area.has_method("get_points") && !is_bounce && !area.is_trash:
 		GameManager.on_lives_changed(-1,false)
-		
 		
 func activate_bounce() ->void:
 	sprite_2d.show()
 	bounce_area.monitoring = true
 	timer.start()
 
-
 func _on_timer_timeout():
 	sprite_2d.hide()
 	bounce_area.monitoring = false
 	is_bounce = false
-
 
 func _on_timer_2_timeout():
 	is_bounce = true

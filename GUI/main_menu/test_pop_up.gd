@@ -4,7 +4,6 @@ extends PanelContainer
 @onready var ok = $MarginContainer2/VBoxContainer/MarginContainer/OK
 @onready var back = $MarginContainer2/VBoxContainer/MarginContainer/Back
 
-
 func _on_back_pressed():
 	if self.visible:
 		GameManager.clear_name()

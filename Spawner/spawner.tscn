@@ -16,7 +16,7 @@ powerup_scenes = [ExtResource("4_y2cp4"), ExtResource("5_rfbhk")]
 max_spawnrate = 1.0
 spawn_rate_amount = 0.1
 lvl_up = 5
-dif_level = 0.6
+dif_level = 0.5
 
 [node name="Timer" type="Timer" parent="."]
 

@@ -33,6 +33,7 @@ var is_fast: bool = false
 @onready var take_dmg_audio: AudioStreamPlayer2D = $TakeDmg
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var shader = sprite_2d.material
+@onready var power_down: AudioStreamPlayer2D = $PowerDown
 
 
 func _ready():
@@ -49,19 +50,14 @@ func _ready():
 	GameManager.speed_powerup.connect(change_speed)
 
 func _physics_process(delta):
-	
 	if is_slowed:
 		is_fast = false
 		sprite_2d.modulate = color_slowed
-		print("i changed color to slowed")
-		
 		
 	if is_fast:
 		is_slowed = false
 		sprite_2d.modulate = color_fast
-		print("i changed color to fast")
-		
-		
+	
 	
 	var direction = Input.get_axis("left","right")
 	
@@ -71,13 +67,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
 func _on_hit_box_area_entered(area):
 	if area.has_method("start_powerup"):
 		area.start_powerup()
 		animation_player.stop()
 		animation_player.play("power_up")
-		#change_speed(max_speed*2,fast_time)
 		
 	if area.has_method("get_points"):
 		GameManager.on_score_changed(area.get_points())
@@ -86,7 +80,8 @@ func _on_hit_box_area_entered(area):
 			area.queue_free()
 			if area.is_trash && !area.has_method("start_powerup"):
 				GameManager.on_lives_changed(-1,true)
-				change_speed(0.5,slowed_time)
+				if !is_fast:
+					change_speed(0.5,slowed_time)
 				return
 			if area.is_in_group("Burgir"):
 				audio_stream_burgir.play()
@@ -119,7 +114,7 @@ func take_dmg(is_trash:bool) ->void:
 
 
 func change_speed(_speed_mult:float,_time) ->void:
-	speed = speed * _speed_mult
+	speed = max_speed * _speed_mult
 	speed_color()
 	debuff.wait_time = _time
 	debuff.start()
@@ -128,6 +123,8 @@ func change_speed(_speed_mult:float,_time) ->void:
 
 func _on_debuff_timeout():
 	print("debuf ended")
+	if speed > max_speed:
+		power_down.play()
 	speed = max_speed
 	speed_color()
 	shader.set_shader_parameter("is_active",false)
@@ -147,5 +144,6 @@ func speed_color() ->void:
 	if speed < max_speed:
 		print("is slow")
 		is_slowed = true
+		power_down.play()
 		shader.set_shader_parameter("is_active",false)
 	

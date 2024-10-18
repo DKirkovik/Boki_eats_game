@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://baehd3ylnfkxh" path="res://Assets/Sprites/pngwing.com.png" id="2_gwuao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xutxd"]
-size = Vector2(65, 26)
+size = Vector2(65, 24)
 
 [node name="Carrot" instance=ExtResource("1_0bik2")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(7, -27)
+position = Vector2(5, -12)
 rotation = 0.261799
+scale = Vector2(0.15, 0.1)
 texture = ExtResource("2_gwuao")
 
 [node name="Sprite2D2" parent="Sprite2D" index="0"]
 texture = ExtResource("2_gwuao")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-5.00002, 4.50001)
+position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_xutxd")

@@ -62,10 +62,8 @@ func on_lives_changed(_lives:float,is_trash:bool) ->void:
 		game_over.emit()
 
 func change_game_scene() ->void:
-	
 	get_tree().change_scene_to_packed(game_scene)
 	scene_changed.emit()
-	
 	
 func change_menu_scene() ->void:
 	get_tree().change_scene_to_packed(menu_scene)
@@ -88,7 +86,6 @@ func init_player() ->void:
 	cur_player_stats.player_name = cur_player_name
 	cur_player_stats.score = score
 	
-
 func update_player_list() ->void:
 	if all_player_list.size() >= max_list_size:
 		print("list big")
@@ -97,7 +94,6 @@ func update_player_list() ->void:
 	all_player_list.append(cur_player_stats)
 	all_player_list.sort_custom(custom_sorting)
 	
-
 func _on_game_over() ->void:
 	init_player()
 	update_player_list()
@@ -116,7 +112,6 @@ func replace_item_in_list() ->void:
 			all_player_list.sort_custom(custom_sorting)
 			return
 
-
 func fill_list() ->void:
 	for i in range(10):
 		var cur_player_ = PlayerStats.new()
@@ -124,7 +119,6 @@ func fill_list() ->void:
 		cur_player_.score = i
 		all_player_list.append(cur_player_)
 		all_player_list.sort_custom(custom_sorting)
-		
 
 func clear_name() ->void:
 	cur_player_name = null

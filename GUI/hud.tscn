@@ -202,3 +202,8 @@ libraries = {
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_uaoov")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

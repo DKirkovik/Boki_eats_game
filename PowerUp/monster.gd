@@ -7,7 +7,6 @@ enum POWERUP
 	SHILD,
 }
 
-
 ## Max move speed
 @export var max_speed:float
 ## Move direction
@@ -41,8 +40,6 @@ func bounce_back(force:float) ->void:
 	position.y += -direction.y * force
 
 func start_powerup() ->void:
-	
-	
 	match cur_powerup:
 		POWERUP.KAPI:
 			GameManager.one_up(lives_amount)

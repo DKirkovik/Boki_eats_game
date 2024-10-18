@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_w8hqa")
-text_array = Array[String](["[b]TIP[/b]: [i]Boki loves to drink White Monster!![/i]", "[b]TIP[/b]: [i]Boki doesn't like to eat vegetables![/i]", "[b]TIP[/b]: [i]Boki gets 1UP from Kapi za Nos!![/i]"])
+text_array = Array[String](["[b]TIP[/b]: [i]White Monster makes Boki go brrrrr!![/i]", "[b]TIP[/b]: [i]Boki doesn't like to eat vegetables![/i]", "[b]TIP[/b]: [i]Boki gets 1UP from Nose Drops!![/i]", "[b]TIP[/b]: [i]Boki is in love with the Cake!![/i]"])

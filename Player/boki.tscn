@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfrbjq7wjs8rt"]
+[gd_scene load_steps=26 format=3 uid="uid://cfrbjq7wjs8rt"]
 
 [ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="1_nq5cs"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://4of0bw4vcxm0" path="res://Assets/SFX/bleeh.wav" id="9_kct4x"]
 [ext_resource type="AudioStream" uid="uid://bpjajawx8osq0" path="res://Assets/SFX/take_dmg.wav" id="10_smo88"]
 [ext_resource type="AudioStream" uid="uid://b62okm0ydfsx1" path="res://Assets/SFX/take_dmg_2.wav" id="11_onntm"]
+[ext_resource type="AudioStream" uid="uid://drmhow2bffakr" path="res://Assets/SFX/MachinePowerOff.wav" id="13_unw2t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfxas"]
 shader = ExtResource("5_2i54i")
@@ -207,6 +208,9 @@ one_shot = true
 
 [node name="TakeDmg" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_8jifu")
+
+[node name="PowerDown" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_unw2t")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Debuff" to="." method="_on_debuff_timeout"]

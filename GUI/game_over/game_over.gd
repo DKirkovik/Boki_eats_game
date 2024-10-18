@@ -41,7 +41,6 @@ func _on_again_pressed():
 	get_tree().paused = false
 	GameManager.change_game_scene()
 
-
 func _on_exit_pressed():
 	get_tree().paused = false
 	GameManager.change_menu_scene()
