@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://6miqyx3x5ovf"]
 
-[ext_resource type="Script" path="res://GUI/hud.gd" id="1_anr25"]
+[ext_resource type="Script" uid="uid://gbybe3y7oox4" path="res://GUI/hud.gd" id="1_anr25"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_ifkqp"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="3_qwm5q"]
 [ext_resource type="AudioStream" uid="uid://dtxbl0gxtlli2" path="res://Assets/Music/one_0.wav" id="5_uecvu"]
@@ -113,9 +113,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7mguw"]
 _data = {
-"RESET": SubResource("Animation_j6npa"),
-"bounce": SubResource("Animation_capq2"),
-"idle": SubResource("Animation_jic4j")
+&"RESET": SubResource("Animation_j6npa"),
+&"bounce": SubResource("Animation_capq2"),
+&"idle": SubResource("Animation_jic4j")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uaoov"]
@@ -197,7 +197,7 @@ texture = ExtResource("3_qwm5q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7mguw")
+&"": SubResource("AnimationLibrary_7mguw")
 }
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]

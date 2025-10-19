@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=3 uid="uid://cfrbjq7wjs8rt"]
 
-[ext_resource type="Script" path="res://Player/boki.gd" id="1_l6qle"]
+[ext_resource type="Script" uid="uid://bsijprkrijvix" path="res://Player/boki.gd" id="1_l6qle"]
 [ext_resource type="Texture2D" uid="uid://782uw3ipv3jb" path="res://Assets/Sprites/Boki_taliban.png" id="1_nq5cs"]
 [ext_resource type="AudioStream" uid="uid://ccrbq76tsg2sh" path="res://Assets/SFX/omom2.wav" id="2_slgxc"]
 [ext_resource type="AudioStream" uid="uid://dxbkr7bc0fshm" path="res://Assets/SFX/OmOm1.wav" id="3_qf5xk"]
-[ext_resource type="Shader" path="res://PowerUp/monster.gdshader" id="5_2i54i"]
+[ext_resource type="Shader" uid="uid://bnl30ibmfch6t" path="res://PowerUp/monster.gdshader" id="5_2i54i"]
 [ext_resource type="AudioStream" uid="uid://wo0gfrnrp0vn" path="res://Assets/SFX/omom3.wav" id="5_gq6qy"]
 [ext_resource type="AudioStream" uid="uid://c3a3eusjx68mu" path="res://Assets/SFX/omom4.wav" id="6_41324"]
 [ext_resource type="AudioStream" uid="uid://bw5q0i5rqf4a" path="res://Assets/SFX/burgi.wav" id="7_gihy4"]
@@ -124,10 +124,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_an3jv"]
 _data = {
-"RESET": SubResource("Animation_w2ifa"),
-"eat": SubResource("Animation_wi110"),
-"power_up": SubResource("Animation_suj43"),
-"take_dmg": SubResource("Animation_abqro")
+&"RESET": SubResource("Animation_w2ifa"),
+&"eat": SubResource("Animation_wi110"),
+&"power_up": SubResource("Animation_suj43"),
+&"take_dmg": SubResource("Animation_abqro")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_77f82"]
@@ -182,7 +182,7 @@ shape = SubResource("RectangleShape2D_vop88")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_an3jv")
+&"": SubResource("AnimationLibrary_an3jv")
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

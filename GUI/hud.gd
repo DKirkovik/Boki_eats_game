@@ -31,7 +31,7 @@ func mute_music() ->void:
 		game_music.play()
 
 func update_lable(_score:float)->void:
-	label.text = str(_score)
+	label.text = str(int(_score))
 	animation_player.stop()
 	animation_player.play("bounce")
 

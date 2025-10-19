@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://21ir5dsftxpc"]
 
-[ext_resource type="Script" path="res://Scoreboard/score_name_container.gd" id="1_8umgl"]
+[ext_resource type="Script" uid="uid://bvak1wpmtyfuq" path="res://Scoreboard/score_name_container.gd" id="1_8umgl"]
 [ext_resource type="LabelSettings" uid="uid://dmkt5sqr2clce" path="res://Assets/Fonts/Lable scoreboard.tres" id="1_c0gfi"]
 
 [node name="ScoreNameContainer" type="MarginContainer"]

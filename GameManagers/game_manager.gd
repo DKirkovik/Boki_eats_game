@@ -21,6 +21,7 @@ var lives:int
 var cur_player_stats : PlayerStats
 var all_player_list : Array[PlayerStats]
 var cur_player_name
+var cur_date
 
 var game_scene: PackedScene = load("res://World/world.tscn")
 var menu_scene: PackedScene = load("res://GUI/main_menu/main_menu.tscn")
@@ -29,6 +30,9 @@ var scoreboard_scene:PackedScene = load("res://Scoreboard/scoreboard.tscn")
 func _ready():
 	game_over.connect(_on_game_over)
 	fill_list()
+	var date = Time.get_datetime_dict_from_system()
+	cur_date = "%02d-%02d-%04d - %02d:%02d:%02d" % [date["day"], date["month"], date["year"],date["hour"],date["minute"],date["second"]]
+	print(cur_date)
 
 func on_score_changed(_score:float) ->void:
 	if !is_game_over:
@@ -85,10 +89,10 @@ func init_player() ->void:
 	cur_player_stats = PlayerStats.new()
 	cur_player_stats.player_name = cur_player_name
 	cur_player_stats.score = score
+	cur_player_stats.date = cur_date
 	
 func update_player_list() ->void:
 	if all_player_list.size() >= max_list_size:
-		print("list big")
 		replace_item_in_list()
 		return
 	all_player_list.append(cur_player_stats)

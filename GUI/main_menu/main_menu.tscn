@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqdfwyb3mesir"]
 
 [ext_resource type="Texture2D" uid="uid://g48oupc0o1p2" path="res://Assets/Sprites/mainMenu_boki.png" id="1_n1km4"]
-[ext_resource type="Script" path="res://GUI/main_menu/main_menu.gd" id="1_rbqlr"]
+[ext_resource type="Script" uid="uid://cbdbf25g8xmaw" path="res://GUI/main_menu/main_menu.gd" id="1_rbqlr"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_k70hb"]
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="3_4x3t5"]
 [ext_resource type="PackedScene" uid="uid://bac5s1ggnf17w" path="res://GUI/main_menu/test_pop_up.tscn" id="3_m1kn6"]
@@ -90,10 +90,10 @@ theme_override_font_sizes/font_size = 64
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
 theme_override_font_sizes/font_size = 64
@@ -105,10 +105,10 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
 theme_override_font_sizes/font_size = 64
@@ -120,10 +120,10 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0.976471, 0.901961, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.247059, 0, 1)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.690196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.913725, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_k70hb")
 theme_override_font_sizes/font_size = 64

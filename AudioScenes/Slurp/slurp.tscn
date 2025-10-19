@@ -6,7 +6,6 @@
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qty8t"]
 streams_count = 1
 stream_0/stream = ExtResource("2_6isau")
-stream_0/weight = 1.0
 
 [node name="Slurp" instance=ExtResource("1_5k00l")]
 stream = SubResource("AudioStreamRandomizer_qty8t")

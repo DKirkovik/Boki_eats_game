@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dctu5ejaupcjc"]
 
-[ext_resource type="Script" path="res://Spawner/spawner.gd" id="1_vbwcw"]
+[ext_resource type="Script" uid="uid://bdghftmax17l7" path="res://Spawner/spawner.gd" id="1_vbwcw"]
 [ext_resource type="PackedScene" uid="uid://obr4c8xuj21u" path="res://Food/food.tscn" id="2_4fg7j"]
 [ext_resource type="PackedScene" uid="uid://bshqhfhqo4opj" path="res://Food/burgir.tscn" id="2_a0pml"]
 [ext_resource type="PackedScene" uid="uid://cv4dw238xylqv" path="res://Trash/Trash.tscn" id="4_mes4e"]
