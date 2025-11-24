@@ -12,7 +12,6 @@ func _on_back_pressed():
 func _on_ok_pressed():
 	if line_edit.text.strip_edges() == "":
 		line_edit.modulate = Color.CRIMSON
-		print("text empty")
 		return
 	else:
 		GameManager.set_player_name(str(line_edit.text))

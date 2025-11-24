@@ -33,10 +33,8 @@ func _ready():
 	GameManager.game_start.connect(start_game)
 	
 	if food_scenes == null:
-		print("nothing to spawn")
 		return
 	if powerup_scenes == null:
-		print("no powerups to spawn")
 		return
 	
 	spawnrate = max_spawnrate
@@ -49,7 +47,6 @@ func change_spawnrate() ->void:
 		speed_up = true
 		spawnrate -= spawn_rate_amount
 		speed_percent += spawn_rate_amount
-		print("spawnrate changed", spawnrate)
 		timer.wait_time = spawnrate
 
 func get_spawnpoint(range:Vector2) ->float:
@@ -63,7 +60,6 @@ func spawn_food() ->void:
 	food_instance.global_position = Vector2(spawn_point,global_position.y)
 	food_instance.set_speed(speed_percent)
 	if food_container == null:
-		print("nowhere to spawn")
 		return
 	food_container.add_child(food_instance)
 	spawned_foods +=1
@@ -80,7 +76,6 @@ func spawn_powerup() -> void:
 	var spawn_point = get_spawnpoint(spawn_range)
 	powerup_instance.global_position = Vector2(spawn_point,global_position.y)
 	if food_container == null:
-		print("nowhere to spawn")
 		return
 	food_container.add_child(powerup_instance)
 

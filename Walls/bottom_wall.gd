@@ -54,7 +54,6 @@ func start_powerup(_time) ->void:
 
 func spawn_particles(pos:Vector2) ->void:
 	if particles_scene == null:
-		print("nothing to spawn")
 		return
 	var particle_instnace = particles_scene.instantiate() as Node2D
 	particle_instnace.global_position = Vector2(pos.x,pos.y + particle_offset)

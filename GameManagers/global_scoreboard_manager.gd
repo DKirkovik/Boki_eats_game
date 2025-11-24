@@ -9,7 +9,7 @@ func _ready() -> void:
 	#send_request()
 	var test = {"name": "Player2", "score": 2300, "date": "2024-11-08"}
 	
-	print(GameManager.all_player_list[0].player_name,GameManager.all_player_list[0].score,GameManager.all_player_list[0].date)
+	#print(GameManager.all_player_list[0].player_name,GameManager.all_player_list[0].score,GameManager.all_player_list[0].date)
 	
 	send_post_request(test)
 	
@@ -25,4 +25,4 @@ func send_post_request(data) ->void:
 func _on_request_completed(results, response_code, headers, body) ->void:
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	
-	print(json)
+	#print(json)

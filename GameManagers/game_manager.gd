@@ -32,7 +32,6 @@ func _ready():
 	fill_list()
 	var date = Time.get_datetime_dict_from_system()
 	cur_date = "%02d-%02d-%04d - %02d:%02d:%02d" % [date["day"], date["month"], date["year"],date["hour"],date["minute"],date["second"]]
-	print(cur_date)
 
 func on_score_changed(_score:float) ->void:
 	if !is_game_over:

@@ -119,10 +119,7 @@ func change_speed(_speed_mult:float,_time) ->void:
 	debuff.wait_time = _time
 	debuff.start()
 
-
-
 func _on_debuff_timeout():
-	print("debuf ended")
 	if speed > max_speed:
 		power_down.play()
 	speed = max_speed
@@ -137,12 +134,10 @@ func start_game() ->void:
 
 func speed_color() ->void:
 	if speed > max_speed:
-		print("is speed")
 		is_fast = true
 		shader.set_shader_parameter("is_active",true)
 		
 	if speed < max_speed:
-		print("is slow")
 		is_slowed = true
 		power_down.play()
 		shader.set_shader_parameter("is_active",false)
