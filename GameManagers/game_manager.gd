@@ -12,7 +12,7 @@ signal player_name_changed
 signal game_paused()
 signal life_lost(is_trash:bool)
 
-
+var name_set : bool = false
 var max_list_size := 10
 var max_score:float
 var score:float
@@ -125,5 +125,6 @@ func fill_list() ->void:
 
 func clear_name() ->void:
 	cur_player_name = null
+	name_set = false
 	player_name_changed.emit()
 	
