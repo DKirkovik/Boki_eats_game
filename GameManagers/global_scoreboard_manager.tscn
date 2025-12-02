@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bybb06d78qujx"]
+
+[ext_resource type="Script" uid="uid://2xdqdm2tj2en" path="res://GameManagers/global_scoreboard_manager.gd" id="1_sr86p"]
+
+[node name="GlobalScoreboardManager" type="Node2D"]
+script = ExtResource("1_sr86p")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

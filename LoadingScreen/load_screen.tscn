@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://wiujqmi85k2t"]
+[gd_scene load_steps=18 format=3 uid="uid://wiujqmi85k2t"]
 
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_7y5ay"]
-[ext_resource type="Script" path="res://LoadingScreen/load_screen.gd" id="1_e730a"]
+[ext_resource type="Script" uid="uid://duxuobkoxbwg1" path="res://LoadingScreen/load_screen.gd" id="1_e730a"]
+[ext_resource type="Resource" uid="uid://dolwxxjsdly2t" path="res://Assets/Text_tip/text_tip.tres" id="2_rewf5"]
 [ext_resource type="PackedScene" uid="uid://c1m4teok3mma1" path="res://PowerUp/kapi.tscn" id="2_t8kar"]
 [ext_resource type="LabelSettings" uid="uid://bqj4wsmbp8q75" path="res://Assets/Fonts/score_font.tres" id="2_vnvy0"]
 [ext_resource type="PackedScene" uid="uid://bdnrl12b2a6qm" path="res://PowerUp/monster.tscn" id="3_8m2ug"]
 [ext_resource type="PackedScene" uid="uid://cv4dw238xylqv" path="res://Trash/Trash.tscn" id="4_vpjih"]
 [ext_resource type="PackedScene" uid="uid://bqb8mm0vgao4l" path="res://Walls/bottom_wall.tscn" id="5_hjhob"]
 [ext_resource type="PackedScene" uid="uid://n3s85dv68gnp" path="res://Walls/Particles/gpu_particles_2d.tscn" id="6_5qxbf"]
+[ext_resource type="PackedScene" uid="uid://jghf78d01w1i" path="res://Trash/carrot.tscn" id="8_2xfo2"]
 
 [sub_resource type="Theme" id="Theme_afca8"]
 default_base_scale = 0.6
@@ -113,9 +115,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mswsm"]
 _data = {
-"RESET": SubResource("Animation_13frl"),
-"fade_out": SubResource("Animation_ojudq"),
-"idle": SubResource("Animation_t80hp")
+&"RESET": SubResource("Animation_13frl"),
+&"fade_out": SubResource("Animation_ojudq"),
+&"idle": SubResource("Animation_t80hp")
 }
 
 [node name="LoadScreen" type="Control"]
@@ -126,7 +128,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e730a")
-obj_to_load = [ExtResource("2_t8kar"), ExtResource("3_8m2ug"), ExtResource("4_vpjih"), ExtResource("5_hjhob"), ExtResource("6_5qxbf")]
+tip_text = ExtResource("2_rewf5")
+obj_to_load = [ExtResource("2_t8kar"), ExtResource("3_8m2ug"), ExtResource("4_vpjih"), ExtResource("5_hjhob"), ExtResource("6_5qxbf"), ExtResource("8_2xfo2")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -161,7 +164,7 @@ offset_right = 153.5
 offset_bottom = 66.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(300, 30)
@@ -184,8 +187,10 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("1_7y5ay")
 theme_override_fonts/bold_font = ExtResource("1_7y5ay")
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 14
+theme_override_fonts/italics_font = ExtResource("1_7y5ay")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "[b]TIP[/b]: [i]Boki doesn't like to eat vegetables![/i]
 
@@ -199,7 +204,7 @@ autowrap_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mswsm")
+&"": SubResource("AnimationLibrary_mswsm")
 }
 autoplay = "idle"
 

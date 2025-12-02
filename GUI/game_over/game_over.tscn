@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1v8pbmdnfeuv"]
 
 [ext_resource type="Texture2D" uid="uid://cfm7g270ph4ud" path="res://Assets/Sprites/game_over_lol.png" id="1_alxtq"]
-[ext_resource type="Script" path="res://GUI/game_over/game_over.gd" id="1_nb3hy"]
+[ext_resource type="Script" uid="uid://cgl78wef6003c" path="res://GUI/game_over/game_over.gd" id="1_nb3hy"]
 [ext_resource type="AudioStream" uid="uid://balk0yn5dott0" path="res://Assets/SFX/defeat_lol.wav" id="2_wyakk"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_efcbb"]
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="4_pg7v8"]
@@ -36,10 +36,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tejmq"]
 _data = {
-"blink_text": SubResource("Animation_ywqph")
+&"blink_text": SubResource("Animation_ywqph")
 }
 
 [node name="Game_over" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,21 +76,25 @@ label_settings = SubResource("LabelSettings_2ywy2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainerButton" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainerButton"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Again" parent="MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_pg7v8")]
+[node name="Continue" parent="MarginContainer/MarginContainerButton/VBoxContainer" instance=ExtResource("4_pg7v8")]
+layout_mode = 2
+text = "Continue"
+
+[node name="Again" parent="MarginContainer/MarginContainerButton/VBoxContainer" instance=ExtResource("4_pg7v8")]
 layout_mode = 2
 text = "Try Again
 "
 
-[node name="Exit" parent="MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_pg7v8")]
+[node name="Exit" parent="MarginContainer/MarginContainerButton/VBoxContainer" instance=ExtResource("4_pg7v8")]
 layout_mode = 2
 text = "Exit
 "
@@ -111,7 +116,8 @@ autoplay = "blink_text"
 wait_time = 2.0
 one_shot = true
 
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Again" to="." method="_on_again_pressed"]
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainerButton/VBoxContainer/Continue" to="." method="_on_game_paused"]
+[connection signal="pressed" from="MarginContainer/MarginContainerButton/VBoxContainer/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainerButton/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

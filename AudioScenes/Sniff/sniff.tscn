@@ -1,13 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce0b0x2wv2atn"]
 
 [ext_resource type="AudioStream" uid="uid://u12kse1xj7vi" path="res://Assets/SFX/sniff.wav" id="1_4f0sr"]
-[ext_resource type="Script" path="res://AudioScenes/Sniff/sniff.gd" id="1_24t3e"]
+[ext_resource type="Script" uid="uid://co44r645tvk8t" path="res://AudioScenes/Sniff/sniff.gd" id="1_24t3e"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ao7g3"]
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("1_4f0sr")
-stream_0/weight = 1.0
 
 [node name="Sniff" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_ao7g3")

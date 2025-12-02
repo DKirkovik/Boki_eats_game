@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnpntvhcsos2h"]
+[gd_scene load_steps=7 format=3 uid="uid://cnpntvhcsos2h"]
 
-[ext_resource type="Script" path="res://Scoreboard/scoreboard.gd" id="1_44moo"]
+[ext_resource type="Script" uid="uid://dfvde6w0e1hu6" path="res://Scoreboard/scoreboard.gd" id="1_44moo"]
 [ext_resource type="FontFile" uid="uid://bd15h0dmq2vbx" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="1_kbfuc"]
 [ext_resource type="PackedScene" uid="uid://21ir5dsftxpc" path="res://Scoreboard/score_name_container.tscn" id="3_6vsrg"]
 [ext_resource type="PackedScene" uid="uid://dtic3qg74le2x" path="res://Button/button.tscn" id="3_nrxpl"]
+[ext_resource type="PackedScene" uid="uid://bsywe27ea4162" path="res://GUI/main_menu/main_menu_music.tscn" id="5_xf720"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcytn"]
 line_spacing = 5.0
@@ -86,6 +87,7 @@ size_flags_vertical = 8
 theme_override_constants/separation = 150
 
 [node name="Play" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Play
@@ -93,9 +95,11 @@ text = "Play
 
 [node name="Back" parent="Panel/ButtonContainer/HBoxContainer" instance=ExtResource("3_nrxpl")]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 text = "Back
 "
+
+[node name="MainMenuMusic" parent="." instance=ExtResource("5_xf720")]
 
 [connection signal="pressed" from="Panel/ButtonContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Panel/ButtonContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

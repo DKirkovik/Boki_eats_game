@@ -1,11 +1,18 @@
 extends Area2D
 
+enum POWERUP 
+{
+	KAPI,
+	MONSTER,
+	SHILD,
+}
+
 ## Max move speed
 @export var max_speed:float
 ## Move direction
 @export var direction:Vector2
 ##Is other powerup
-@export var is_kapi:bool  #Make Enum for diff powerups
+@export var cur_powerup:POWERUP  #Make Enum for diff powerups
 ##Is trash
 @export var is_trash:bool
 ## Amount of lives to give
@@ -14,6 +21,8 @@ extends Area2D
 @export var powerup_time:float
 ##SFX 
 @export var sfx:PackedScene
+##Speed mult
+@export var speed_mult : float = 2.0
 
 var speed:float
 
@@ -31,14 +40,14 @@ func bounce_back(force:float) ->void:
 	position.y += -direction.y * force
 
 func start_powerup() ->void:
-	
-	#can be made with match stat for dif powerups
-	#redef powerup code
-	
-	if is_kapi:
-		GameManager.one_up(lives_amount)
-	else:
-		GameManager.jelly_powerup.emit(powerup_time)
+	match cur_powerup:
+		POWERUP.KAPI:
+			GameManager.one_up(lives_amount)
+		POWERUP.MONSTER:
+			GameManager.speed_powerup.emit(speed_mult,powerup_time)
+		POWERUP.SHILD:
+			pass
+
 	spawn_sound()
 	spawn_particles()
 	call_deferred("queue_free")

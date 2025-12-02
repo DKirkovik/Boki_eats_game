@@ -4,11 +4,15 @@ signal score_changed(score:float)
 signal lives_changed(lives:int)
 signal game_over()
 signal jelly_powerup(_time:float)
+signal speed_powerup(speed_mult:float,_time:float)
 signal scene_changed()
 signal mute_audio()
 signal game_start()
 signal player_name_changed
+signal game_paused()
+signal life_lost(is_trash:bool)
 
+var name_set : bool = false
 var max_list_size := 10
 var max_score:float
 var score:float
@@ -17,6 +21,7 @@ var lives:int
 var cur_player_stats : PlayerStats
 var all_player_list : Array[PlayerStats]
 var cur_player_name
+var cur_date
 
 var game_scene: PackedScene = load("res://World/world.tscn")
 var menu_scene: PackedScene = load("res://GUI/main_menu/main_menu.tscn")
@@ -25,7 +30,8 @@ var scoreboard_scene:PackedScene = load("res://Scoreboard/scoreboard.tscn")
 func _ready():
 	game_over.connect(_on_game_over)
 	fill_list()
-
+	var date = Time.get_datetime_dict_from_system()
+	cur_date = "%02d-%02d-%04d - %02d:%02d:%02d" % [date["day"], date["month"], date["year"],date["hour"],date["minute"],date["second"]]
 
 func on_score_changed(_score:float) ->void:
 	if !is_game_over:
@@ -48,19 +54,19 @@ func set_lives(_lives:int) ->void:
 func get_lives() ->int:
 	return lives
 
-func on_lives_changed(_lives:float) ->void:
+func on_lives_changed(_lives:float,is_trash:bool) ->void:
 	if lives > 0:
 		lives+= _lives
 		lives_changed.emit(lives)
+		if _lives <0:
+			life_lost.emit(is_trash)
 	elif !is_game_over:
 		is_game_over = true
 		game_over.emit()
 
 func change_game_scene() ->void:
-	
 	get_tree().change_scene_to_packed(game_scene)
 	scene_changed.emit()
-	
 	
 func change_menu_scene() ->void:
 	get_tree().change_scene_to_packed(menu_scene)
@@ -82,17 +88,15 @@ func init_player() ->void:
 	cur_player_stats = PlayerStats.new()
 	cur_player_stats.player_name = cur_player_name
 	cur_player_stats.score = score
+	cur_player_stats.date = cur_date
 	
-
 func update_player_list() ->void:
 	if all_player_list.size() >= max_list_size:
-		print("list big")
 		replace_item_in_list()
 		return
 	all_player_list.append(cur_player_stats)
 	all_player_list.sort_custom(custom_sorting)
 	
-
 func _on_game_over() ->void:
 	init_player()
 	update_player_list()
@@ -111,7 +115,6 @@ func replace_item_in_list() ->void:
 			all_player_list.sort_custom(custom_sorting)
 			return
 
-
 func fill_list() ->void:
 	for i in range(10):
 		var cur_player_ = PlayerStats.new()
@@ -119,9 +122,9 @@ func fill_list() ->void:
 		cur_player_.score = i
 		all_player_list.append(cur_player_)
 		all_player_list.sort_custom(custom_sorting)
-		
 
 func clear_name() ->void:
 	cur_player_name = null
+	name_set = false
 	player_name_changed.emit()
 	

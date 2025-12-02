@@ -19,7 +19,6 @@ extends Node2D
 ## First powerupspawn for debugigng
 @export var powerup_spawn_per:float
 
-
 var spawnrate:float
 var spawned_foods:int
 var spawn_range:Vector2
@@ -34,31 +33,25 @@ func _ready():
 	GameManager.game_start.connect(start_game)
 	
 	if food_scenes == null:
-		print("nothing to spawn")
 		return
 	if powerup_scenes == null:
-		print("no powerups to spawn")
 		return
 	
 	spawnrate = max_spawnrate
 	spawned_foods = 1
 	spawn_range = Vector2(spawn_offset, get_viewport_rect().size.x - spawn_offset)
 	cur_powerup_spawn_per = powerup_spawn_per
-		
 
 func change_spawnrate() ->void:
 	if spawnrate >= dif_level:
 		speed_up = true
 		spawnrate -= spawn_rate_amount
 		speed_percent += spawn_rate_amount
-		print("spawnrate changed", spawnrate)
 		timer.wait_time = spawnrate
-
 
 func get_spawnpoint(range:Vector2) ->float:
 	var point = randf_range(range.x, range.y)
 	return point
-
 
 func spawn_food() ->void:
 	var num = randi_range(0,food_scenes.size()-1)
@@ -67,11 +60,9 @@ func spawn_food() ->void:
 	food_instance.global_position = Vector2(spawn_point,global_position.y)
 	food_instance.set_speed(speed_percent)
 	if food_container == null:
-		print("nowhere to spawn")
 		return
 	food_container.add_child(food_instance)
 	spawned_foods +=1
-	
 
 func _on_timer_timeout():
 	spawn_food()
@@ -79,18 +70,14 @@ func _on_timer_timeout():
 	if spawned_foods % lvl_up == 0:
 		change_spawnrate()
 
-
-
 func spawn_powerup() -> void:
 	var num = randi_range(0,powerup_scenes.size()-1)
 	var powerup_instance = powerup_scenes[num].instantiate() as Node2D
 	var spawn_point = get_spawnpoint(spawn_range)
 	powerup_instance.global_position = Vector2(spawn_point,global_position.y)
 	if food_container == null:
-		print("nowhere to spawn")
 		return
 	food_container.add_child(powerup_instance)
-
 
 func try_spawn_powerup() ->void:
 	var ran_num = randf_range(0,100)

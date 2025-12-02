@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ci1nv8jqi66y8"]
 
-[ext_resource type="Script" path="res://Player/food_crumbs.gd" id="1_iy043"]
+[ext_resource type="Script" uid="uid://dtqqtg7ekryja" path="res://Player/food_crumbs.gd" id="1_iy043"]
 
 [node name="FoodCrumbs" type="CPUParticles2D"]
 position = Vector2(0, 19)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://n3s85dv68gnp"]
 
-[ext_resource type="Script" path="res://Walls/Particles/gpu_particles_2d.gd" id="1_pchr2"]
+[ext_resource type="Script" uid="uid://cxgwc40y6je7h" path="res://Walls/Particles/gpu_particles_2d.gd" id="1_pchr2"]
 
 [node name="CPUParticles2D" type="CPUParticles2D"]
 emitting = false

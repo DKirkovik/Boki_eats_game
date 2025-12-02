@@ -5,7 +5,6 @@ extends Control
 @onready var name_container = $CanvasLayer/MarginContainer/VBoxContainer/NameContainer
 @onready var player_name = $CanvasLayer/MarginContainer/VBoxContainer/NameContainer/PlayerName
 
-
 var can_start = false
 
 func _ready():
@@ -22,12 +21,11 @@ func _process(delta):
 		music_settings()
 		GameManager.mute_audio.emit()
 
-
 func _on_start_pressed():
 	if can_start:
 		GameManager.change_game_scene()
 		can_start = false
-	else:
+	elif !GameManager.name_set:
 		panel_container.show()
 	
 func _on_exit_pressed():
@@ -43,18 +41,18 @@ func music_settings() ->void:
 	else:
 		main_menu_music.play()
 
-
 func _on_scoreboard_pressed():
 	GameManager.change_scoreboard_scene()
-
 
 func _on_button_pressed():
 	can_start = false
 	name_container.hide()
 	panel_container.show()
+	GameManager.name_set = false
 
 func _can_start() ->void:
-	if GameManager.cur_player_name == null:
+	if GameManager.cur_player_name == null and !GameManager.name_set:
 		can_start = false
 	else:
 		can_start = true
+		GameManager.name_set = true

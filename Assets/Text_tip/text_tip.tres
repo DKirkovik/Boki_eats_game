@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TextTip" load_steps=2 format=3 uid="uid://dolwxxjsdly2t"]
+
+[ext_resource type="Script" uid="uid://rsjf6bbw2rvr" path="res://Assets/Text_tip/text_tip.gd" id="1_w8hqa"]
+
+[resource]
+script = ExtResource("1_w8hqa")
+text_array = Array[String](["[b]TIP[/b]: [i]White Monster makes Boki go brrrrr!![/i]", "[b]TIP[/b]: [i]Boki doesn't like to eat vegetables![/i]", "[b]TIP[/b]: [i]Boki gets 1UP from Nose Drops!![/i]", "[b]TIP[/b]: [i]Boki is in love with the Cake!![/i]"])

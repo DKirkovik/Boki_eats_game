@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsywe27ea4162"]
+
+[ext_resource type="AudioStream" uid="uid://cxr8hu04yr3bu" path="res://Assets/Music/carnival_of_strangeness.wav" id="1_svlnc"]
+
+[node name="MainMenuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_svlnc")
+autoplay = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://hblqjc8pac7t"]
 
-[ext_resource type="Script" path="res://World/world.gd" id="1_jw5v4"]
+[ext_resource type="Script" uid="uid://ddxqfn0m0f6g3" path="res://World/world.gd" id="1_jw5v4"]
 [ext_resource type="PackedScene" uid="uid://cfrbjq7wjs8rt" path="res://Player/boki.tscn" id="1_khhgq"]
 [ext_resource type="PackedScene" uid="uid://bqb8mm0vgao4l" path="res://Walls/bottom_wall.tscn" id="2_2gbmo"]
 [ext_resource type="Texture2D" uid="uid://cjvcitfked67c" path="res://Assets/Sprites/background_big.png" id="2_m6qq2"]
@@ -24,9 +24,7 @@ powerup_time = 10.0
 
 [node name="Boki" parent="." instance=ExtResource("1_khhgq")]
 position = Vector2(294, 892)
-max_speed = 500.0
 max_hp = 3
-offset = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,7 +39,6 @@ max_spawnrate = 1.4
 lvl_up = 20
 spawn_offset = 40.0
 food_container = NodePath("../FoodContainer")
-dif_level = 0.4
 powerup_spawn_per = 15.0
 
 [node name="LoadScreen" parent="." instance=ExtResource("8_1mxdj")]

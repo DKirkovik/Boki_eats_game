@@ -6,7 +6,7 @@
 
 [node name="Kapi" instance=ExtResource("1_c62tt")]
 max_speed = 300.0
-is_kapi = true
+cur_powerup = 0
 lives_amount = 1
 sfx = ExtResource("2_70qhf")
 
